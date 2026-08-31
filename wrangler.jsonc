@@ -1,0 +1,29 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "midadea-org-site",
+	"main": "./src/worker.ts",
+	"compatibility_date": "2026-02-24",
+	"compatibility_flags": ["nodejs_compat"],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "midadea-org-site","database_id": "6df51875-b945-4f89-b095-c93a84301372",
+		},
+	],
+	"r2_buckets": [
+		{
+			"binding": "MEDIA",
+			"bucket_name": "midadea-org-site","preview_bucket_name": "midadea-org-site",
+		},
+	],
+	// Worker Loader for plugin sandboxing
+	"worker_loaders": [
+		{
+			"binding": "LOADER",
+		},
+	],
+	// General maintenance plus the bounded Media Usage lane (see src/worker.ts)
+	"triggers": {
+		"crons": ["* * * * *", "*/2 * * * *"],
+	},
+}
