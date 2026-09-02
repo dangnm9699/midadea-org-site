@@ -280,18 +280,18 @@ const isLoggedIn = !!Astro.locals.user;
 			</div>
 		</footer>
 
-		<script>
+		<!-- is:inline: script này không có import, và bundler của Astro đang
+		     bỏ qua nó (không sinh ra Base.astro_astro_type_script_*.js), khiến
+		     ba nút đổi theme ở footer render nhưng không bind handler. Nhả
+		     thẳng vào HTML để không phụ thuộc bundler. -->
+		<script is:inline>
 			// Theme switcher
 			const THEME_REGEX = /theme=([^;]+)/;
 			const themeBtns =
-				document.querySelectorAll<HTMLButtonElement>(".theme-btn");
+				document.querySelectorAll(".theme-btn");
 			const root = document.documentElement;
 
-			function setCookie(
-				name: string,
-				value: string,
-				maxAge: number = 31536000
-			) {
+			function setCookie(name, value, maxAge = 31536000) {
 				const secure = location.protocol === "https:" ? "; Secure" : "";
 				if (value === "") {
 					document.cookie = `${name}=; path=/; max-age=0; SameSite=Lax${secure}`;
@@ -300,7 +300,7 @@ const isLoggedIn = !!Astro.locals.user;
 				}
 			}
 
-			function setTheme(theme: string) {
+			function setTheme(theme) {
 				if (theme === "system") {
 					setCookie("theme", "");
 					root.classList.remove("light", "dark");
@@ -312,13 +312,13 @@ const isLoggedIn = !!Astro.locals.user;
 				updateActiveBtn(theme);
 			}
 
-			function updateActiveBtn(theme: string) {
+			function updateActiveBtn(theme) {
 				themeBtns.forEach((btn) => {
 					btn.classList.toggle("active", btn.dataset.theme === theme);
 				});
 			}
 
-			function getStoredTheme(): string {
+			function getStoredTheme() {
 				const match = document.cookie.match(THEME_REGEX);
 				return match ? match[1] : "system";
 			}
@@ -871,14 +871,13 @@ const isLoggedIn = !!Astro.locals.user;
 			}
 		</style>
 
-		<script>
+		<!-- is:inline vì cùng lý do với script theme switcher ở trên. -->
+		<script is:inline>
 			// ⌘K / Ctrl+K to focus search
 			document.addEventListener("keydown", (e) => {
 				if ((e.metaKey || e.ctrlKey) && e.key === "k") {
 					e.preventDefault();
-					const searchInput = document.querySelector(
-						".site-search-input"
-					) as HTMLInputElement;
+					const searchInput = document.querySelector(".site-search-input");
 					if (searchInput) {
 						searchInput.focus();
 					}
