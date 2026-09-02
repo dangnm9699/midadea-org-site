@@ -16,12 +16,6 @@
 			"bucket_name": "midadea-org-site","preview_bucket_name": "midadea-org-site",
 		},
 	],
-	// Worker Loader for plugin sandboxing
-	"worker_loaders": [
-		{
-			"binding": "LOADER",
-		},
-	],
 	// General maintenance plus the bounded Media Usage lane (see src/worker.ts)
 	"triggers": {
 		"crons": ["* * * * *", "*/2 * * * *"],

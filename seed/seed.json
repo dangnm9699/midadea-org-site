@@ -2,20 +2,25 @@
 	"$schema": "https://emdashcms.com/seed.schema.json",
 	"version": "1",
 	"meta": {
-		"name": "Blog Starter",
-		"description": "A blog with posts and pages",
-		"author": "EmDash"
+		"name": "midadean",
+		"description": "Blog cá nhân về backend và agent trong sản xuất",
+		"author": "Đăng"
 	},
 	"settings": {
-		"title": "My Blog",
-		"tagline": "Thoughts on building for the web"
+		"title": "midadean",
+		"tagline": "Backend ở quy mô thật, agent trong sản xuất, và những đánh đổi không nằm trong tài liệu."
 	},
 	"collections": [
 		{
 			"slug": "posts",
 			"label": "Posts",
 			"labelSingular": "Post",
-			"supports": ["drafts", "revisions", "search", "seo"],
+			"supports": [
+				"drafts",
+				"revisions",
+				"search",
+				"seo"
+			],
 			"commentsEnabled": true,
 			"fields": [
 				{
@@ -47,7 +52,11 @@
 			"slug": "pages",
 			"label": "Pages",
 			"labelSingular": "Page",
-			"supports": ["drafts", "revisions", "search"],
+			"supports": [
+				"drafts",
+				"revisions",
+				"search"
+			],
 			"fields": [
 				{
 					"slug": "title",
@@ -68,62 +77,100 @@
 	"taxonomies": [
 		{
 			"name": "category",
-			"label": "Categories",
-			"labelSingular": "Category",
+			"label": "Chuyên mục",
+			"labelSingular": "Chuyên mục",
 			"hierarchical": true,
-			"collections": ["posts"],
+			"collections": [
+				"posts"
+			],
 			"terms": [
 				{
-					"slug": "development",
-					"label": "Development"
+					"slug": "backend",
+					"label": "Backend"
 				},
 				{
-					"slug": "design",
-					"label": "Design"
+					"slug": "agent",
+					"label": "Agent & AI"
 				},
 				{
-					"slug": "notes",
-					"label": "Notes"
+					"slug": "ghi-chep",
+					"label": "Ghi chép"
 				}
 			]
 		},
 		{
 			"name": "tag",
-			"label": "Tags",
-			"labelSingular": "Tag",
+			"label": "Thẻ",
+			"labelSingular": "Thẻ",
 			"hierarchical": false,
-			"collections": ["posts"],
+			"collections": [
+				"posts"
+			],
 			"terms": [
 				{
-					"slug": "webdev",
-					"label": "Web Development"
+					"slug": "cloudflare",
+					"label": "Cloudflare"
 				},
 				{
-					"slug": "opinion",
-					"label": "Opinion"
+					"slug": "astro",
+					"label": "Astro"
 				},
 				{
-					"slug": "tools",
-					"label": "Tools"
+					"slug": "backend",
+					"label": "Backend"
 				},
 				{
-					"slug": "creativity",
-					"label": "Creativity"
+					"slug": "database",
+					"label": "Database"
+				},
+				{
+					"slug": "sequelize",
+					"label": "Sequelize"
+				},
+				{
+					"slug": "shopify",
+					"label": "Shopify"
+				},
+				{
+					"slug": "webhook",
+					"label": "Webhook"
+				},
+				{
+					"slug": "agent",
+					"label": "Agent"
+				},
+				{
+					"slug": "langgraph",
+					"label": "LangGraph"
+				},
+				{
+					"slug": "ai",
+					"label": "AI"
+				},
+				{
+					"slug": "eval",
+					"label": "Eval"
+				},
+				{
+					"slug": "security",
+					"label": "Bảo mật"
+				},
+				{
+					"slug": "leadership",
+					"label": "Leadership"
+				},
+				{
+					"slug": "code-review",
+					"label": "Code review"
 				}
 			]
 		}
 	],
 	"bylines": [
 		{
-			"id": "byline-editorial",
-			"slug": "emdash-editorial",
-			"displayName": "EmDash Editorial"
-		},
-		{
-			"id": "byline-guest",
-			"slug": "guest-contributor",
-			"displayName": "Guest Contributor",
-			"isGuest": true
+			"id": "byline-dang",
+			"slug": "dang",
+			"displayName": "Đăng"
 		}
 	],
 	"menus": [
@@ -133,18 +180,18 @@
 			"items": [
 				{
 					"type": "custom",
-					"label": "Home",
+					"label": "Trang chủ",
 					"url": "/"
 				},
 				{
 					"type": "custom",
-					"label": "About",
-					"url": "/pages/about"
+					"label": "Bài viết",
+					"url": "/posts"
 				},
 				{
 					"type": "custom",
-					"label": "Posts",
-					"url": "/posts"
+					"label": "Giới thiệu",
+					"url": "/pages/about"
 				}
 			]
 		}
@@ -221,7 +268,12 @@
 			"slug": "newsletter-signup",
 			"title": "Newsletter Signup",
 			"description": "A call-to-action block for newsletter subscriptions",
-			"keywords": ["newsletter", "subscribe", "email", "cta"],
+			"keywords": [
+				"newsletter",
+				"subscribe",
+				"email",
+				"cta"
+			],
 			"source": "theme",
 			"content": [
 				{
@@ -254,7 +306,11 @@
 			"slug": "about-author",
 			"title": "About the Author",
 			"description": "Brief author bio for use in posts or pages",
-			"keywords": ["author", "bio", "about"],
+			"keywords": [
+				"author",
+				"bio",
+				"about"
+			],
 			"source": "theme",
 			"content": [
 				{
@@ -279,7 +335,7 @@
 				"slug": "about",
 				"status": "published",
 				"data": {
-					"title": "About",
+					"title": "Giới thiệu",
 					"content": [
 						{
 							"_type": "block",
@@ -287,11 +343,27 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "A place for writing about software, design, and the occasional stray thought. No posting schedule, no newsletter funnel. Just things I wanted to write down.",
-									"_key": "k1"
+									"text": "Tôi là Đăng, kỹ sư backend. Phần lớn thời gian của tôi dành cho các hệ thống thương mại điện tử đang chạy thật: dữ liệu lớn dần, tích hợp bên thứ ba thi thoảng gửi lại cùng một sự kiện, và mọi quyết định kiến trúc đều phải sống chung với dữ liệu đã có.",
+									"marks": [],
+									"_key": "k296"
 								}
 							],
-							"_key": "k0"
+							"markDefs": [],
+							"_key": "k297"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Ba mảng tôi viết nhiều nhất",
+									"marks": [],
+									"_key": "k298"
+								}
+							],
+							"markDefs": [],
+							"_key": "k299"
 						},
 						{
 							"_type": "block",
@@ -299,11 +371,133 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Built with Astro and EmDash. The source is open if you want to see how it works.",
-									"_key": "k3"
+									"text": "Agent trong sản xuất.",
+									"marks": [
+										"strong"
+									],
+									"_key": "k300"
+								},
+								{
+									"_type": "span",
+									"text": " Không phải demo. Là chuyện đo đạc, đặt ranh giới quyền hạn, và biết khi nào phải để con người quyết.",
+									"marks": [],
+									"_key": "k301"
 								}
 							],
-							"_key": "k2"
+							"markDefs": [],
+							"_key": "k302",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Backend ở quy mô thật.",
+									"marks": [
+										"strong"
+									],
+									"_key": "k303"
+								},
+								{
+									"_type": "span",
+									"text": " Migration, hàng đợi, tính bất biến của webhook — những thứ tài liệu chính thức nói rất ít.",
+									"marks": [],
+									"_key": "k304"
+								}
+							],
+							"markDefs": [],
+							"_key": "k305",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Làm việc với đội đang dùng AI.",
+									"marks": [
+										"strong"
+									],
+									"_key": "k306"
+								},
+								{
+									"_type": "span",
+									"text": " Review code, dựng quy trình, và những thói quen cần đổi.",
+									"marks": [],
+									"_key": "k307"
+								}
+							],
+							"markDefs": [],
+							"_key": "k308",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Về chi tiết trong bài",
+									"marks": [],
+									"_key": "k309"
+								}
+							],
+							"markDefs": [],
+							"_key": "k310"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Chi tiết nội bộ đều đã được làm mờ: tên bảng đổi, con số làm tròn, không có tên khách hàng. Phần kỹ thuật giữ nguyên.",
+									"marks": [],
+									"_key": "k311"
+								}
+							],
+							"markDefs": [],
+							"_key": "k312"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Chưa có bản tin định kỳ. Cách chắc chắn nhất để không bỏ lỡ bài mới là ",
+									"marks": [],
+									"_key": "k313"
+								},
+								{
+									"_type": "span",
+									"text": "feed RSS",
+									"marks": [
+										"k314"
+									],
+									"_key": "k315"
+								},
+								{
+									"_type": "span",
+									"text": ".",
+									"marks": [],
+									"_key": "k316"
+								}
+							],
+							"markDefs": [
+								{
+									"_type": "link",
+									"_key": "k314",
+									"href": "/rss.xml"
+								}
+							],
+							"_key": "k317"
 						}
 					]
 				}
@@ -312,18 +506,11 @@
 		"posts": [
 			{
 				"id": "post-1",
-				"slug": "building-for-the-long-term",
+				"slug": "dung-site-nay-tren-cloudflare",
 				"status": "published",
 				"data": {
-					"title": "Building for the Long Term",
-					"excerpt": "The frameworks will change. The databases will change. What survives is the clarity of your thinking.",
-					"featured_image": {
-						"$media": {
-							"url": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=800&fit=crop",
-							"alt": "Code on a monitor in a dark room",
-							"filename": "building-long-term.jpg"
-						}
-					},
+					"title": "Dựng site này: Astro 7 tĩnh trên Cloudflare Workers, và bài toán chi phí thật",
+					"excerpt": "Vì sao static asset trên Cloudflare làm cho hạn mức 100.000 request/ngày gần như không liên quan, và chỗ duy nhất còn tốn tiền là tên miền.",
 					"content": [
 						{
 							"_type": "block",
@@ -331,23 +518,13 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Every few years the industry collectively decides that everything we've been doing is wrong and there's a better way. New frameworks, new paradigms, new build tools. The churn is relentless, and if you're not careful, you spend more time migrating than building.",
-									"_key": "k1"
+									"text": "Bài đầu tiên nên là bài rẻ nhất để viết: ghi lại chính cái site bạn đang đọc được dựng bằng gì, và vì sao.",
+									"marks": [],
+									"_key": "k0"
 								}
 							],
-							"_key": "k0"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "I've been writing software long enough to have seen several of these cycles. jQuery to Backbone to Angular to React to whatever comes next. Each transition felt urgent at the time. Looking back, the things that actually mattered were rarely about the framework.",
-									"_key": "k3"
-								}
-							],
-							"_key": "k2"
+							"markDefs": [],
+							"_key": "k1"
 						},
 						{
 							"_type": "block",
@@ -355,11 +532,13 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "What survives",
-									"_key": "k5"
+									"text": "Vì sao không dùng CMS",
+									"marks": [],
+									"_key": "k2"
 								}
 							],
-							"_key": "k4"
+							"markDefs": [],
+							"_key": "k3"
 						},
 						{
 							"_type": "block",
@@ -367,11 +546,41 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Clean data models survive. Clear boundaries between systems survive. Good naming survives. The decision to keep things simple when you could have made them clever - that definitely survives.",
+									"text": "Cloudflare ra EmDash hồi tháng 4/2026 — CMS mã nguồn mở, TypeScript, chạy trên Workers + D1 + R2, plugin bị nhốt trong V8 isolate. Ngày 12/8 họ chuyển blog của chính mình sang nó. Đó là tín hiệu nghiêm túc.",
+									"marks": [],
+									"_key": "k4"
+								}
+							],
+							"markDefs": [],
+							"_key": "k5"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Nhưng CMS giải quyết bài toán ",
+									"marks": [],
+									"_key": "k6"
+								},
+								{
+									"_type": "span",
+									"text": "nhiều người không biết code cùng sản xuất nội dung",
+									"marks": [
+										"em"
+									],
 									"_key": "k7"
+								},
+								{
+									"_type": "span",
+									"text": ". Một người viết Markdown rồi commit thì admin UI chỉ là thêm bề mặt cần bảo trì. Và EmDash hiện vẫn là v0.1.0 beta preview — chưa phải chỗ để đặt blog cá nhân xuống rồi quên đi trong hai năm.",
+									"marks": [],
+									"_key": "k8"
 								}
 							],
-							"_key": "k6"
+							"markDefs": [],
+							"_key": "k9"
 						},
 						{
 							"_type": "block",
@@ -379,11 +588,27 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "What doesn't survive is code that was written to impress, abstractions built for problems that never materialized, and architectures designed around a framework's opinions rather than the domain's reality.",
-									"_key": "k9"
+									"text": "Nên: Astro tĩnh, nội dung là file Markdown trong Git.",
+									"marks": [],
+									"_key": "k10"
 								}
 							],
-							"_key": "k8"
+							"markDefs": [],
+							"_key": "k11"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Vì sao Astro chứ không phải Next.js",
+									"marks": [],
+									"_key": "k12"
+								}
+							],
+							"markDefs": [],
+							"_key": "k13"
 						},
 						{
 							"_type": "block",
@@ -391,66 +616,366 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "The best code I've written is boring. It reads like prose, does one thing well, and doesn't require a PhD in category theory to understand. The worst code I've written was technically impressive at the time.",
-									"_key": "k11"
+									"text": "Astro mặc định ship 0 JavaScript. Với một trang chỉ cần HTML, mang RSC và hydration vào là trả giá cho thứ không dùng.",
+									"marks": [],
+									"_key": "k14"
 								}
 							],
-							"_key": "k10"
+							"markDefs": [],
+							"_key": "k15"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Thứ đáng giá hơn là Content Collections: frontmatter có schema, sai field thì build đỏ chứ không phải trang production render trắng.",
+									"marks": [],
+									"_key": "k16"
+								}
+							],
+							"markDefs": [],
+							"_key": "k17"
+						},
+						{
+							"_type": "code",
+							"code": "// src/content.config.ts\nimport { defineCollection } from 'astro:content';\nimport { glob } from 'astro/loaders';\nimport { z } from 'astro/zod';\n\nconst blog = defineCollection({\n  loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),\n  schema: z.object({\n    title: z.string(),\n    pubDate: z.coerce.date(),\n    draft: z.boolean().default(false),\n  }),\n});\n\nexport const collections = { blog };",
+							"_key": "k18",
+							"language": "ts"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Một chỗ dễ vấp: từ Astro 6 trở đi, ",
+									"marks": [],
+									"_key": "k19"
+								},
+								{
+									"_type": "span",
+									"text": "z",
+									"marks": [
+										"code"
+									],
+									"_key": "k20"
+								},
+								{
+									"_type": "span",
+									"text": " không lấy từ ",
+									"marks": [],
+									"_key": "k21"
+								},
+								{
+									"_type": "span",
+									"text": "astro:content",
+									"marks": [
+										"code"
+									],
+									"_key": "k22"
+								},
+								{
+									"_type": "span",
+									"text": " nữa mà từ ",
+									"marks": [],
+									"_key": "k23"
+								},
+								{
+									"_type": "span",
+									"text": "astro/zod",
+									"marks": [
+										"code"
+									],
+									"_key": "k24"
+								},
+								{
+									"_type": "span",
+									"text": ", và đó là Zod 4. Import cũ vẫn chạy nhưng đã deprecated, sẽ bị bỏ ở Astro 8. Gần như mọi tutorial Astro 5 trên mạng đều sai chỗ này.",
+									"marks": [],
+									"_key": "k25"
+								}
+							],
+							"markDefs": [],
+							"_key": "k26"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Bản đang dùng ở đây là Astro 7.2.9. Astro 7.0 ra ngày 22/6/2026 — nếu bạn tra tài liệu và thấy người ta nói Astro 6 là mới nhất, đó là thông tin của tháng 3.",
+									"marks": [],
+									"_key": "k27"
+								}
+							],
+							"markDefs": [],
+							"_key": "k28"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Chỗ mà chi phí biến mất",
+									"marks": [],
+									"_key": "k29"
+								}
+							],
+							"markDefs": [],
+							"_key": "k30"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Đây mới là phần đáng nói.",
+									"marks": [],
+									"_key": "k31"
+								}
+							],
+							"markDefs": [],
+							"_key": "k32"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Workers Free cho 100.000 request/ngày và 10ms CPU mỗi lần gọi. Nghe như một cái trần cần để mắt tới. Thực tế thì không, vì ",
+									"marks": [],
+									"_key": "k33"
+								},
+								{
+									"_type": "span",
+									"text": "request tới static asset là miễn phí và không giới hạn",
+									"marks": [
+										"strong"
+									],
+									"_key": "k34"
+								},
+								{
+									"_type": "span",
+									"text": " trên cả Free lẫn Paid, egress không đo. Chỉ request thật sự gọi vào Worker script — tức SSR — mới bị tính.",
+									"marks": [],
+									"_key": "k35"
+								}
+							],
+							"markDefs": [],
+							"_key": "k36"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Site build tĩnh thì mọi request đều là static asset. Không có hạn mức nào để chạm vào. Không phải \"đủ dùng lâu dài\", mà là không liên quan.",
+									"marks": [],
+									"_key": "k37"
+								}
+							],
+							"markDefs": [],
+							"_key": "k38"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Một hiểu nhầm phổ biến nữa, tôi cũng từng tin: rằng phải lên gói $5/tháng nếu cần Cron Triggers hoặc Durable Objects. Sai cả hai. Cron Triggers có sẵn trên Free (3 cron mỗi Worker). Durable Objects backend SQLite lên Free plan từ tháng 4/2025 và không tính phí storage — chỉ backend key-value mới cần Paid.",
+									"marks": [],
+									"_key": "k39"
+								}
+							],
+							"markDefs": [],
+							"_key": "k40"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Thứ thực sự đẩy bạn lên gói trả tiền là vượt 100k request động/ngày, vượt 10ms CPU, hoặc vượt 10.000 Neurons/ngày của Workers AI.",
+									"marks": [],
+									"_key": "k41"
+								}
+							],
+							"markDefs": [],
+							"_key": "k42"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Vậy còn lại gì phải trả",
+									"marks": [],
+									"_key": "k43"
+								}
+							],
+							"markDefs": [],
+							"_key": "k44"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Tên miền. Cloudflare Registrar bán at-cost, giá gia hạn bằng giá đăng ký, không có trò năm đầu rẻ rồi tăng vọt.",
+									"marks": [],
+									"_key": "k45"
+								}
+							],
+							"markDefs": [],
+							"_key": "k46"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Hết. Không database, không email service, không hosting.",
+									"marks": [],
+									"_key": "k47"
+								}
+							],
+							"markDefs": [],
+							"_key": "k48"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Chi phí thật của một cái blog chưa bao giờ nằm ở hoá đơn hạ tầng. Nó nằm ở số giờ ngồi viết. Tối ưu 9 đô một tháng trong khi chưa đăng bài nào là đang giải sai bài toán.",
+									"marks": [],
+									"_key": "k49"
+								}
+							],
+							"markDefs": [],
+							"_key": "k50"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Còn newsletter",
+									"marks": [],
+									"_key": "k51"
+								}
+							],
+							"markDefs": [],
+							"_key": "k52"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Chưa có, và cố tình chưa có.",
+									"marks": [],
+									"_key": "k53"
+								}
+							],
+							"markDefs": [],
+							"_key": "k54"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Có một cái bẫy dễ mắc: dựng sẵn ô nhập email khi chưa có endpoint nhận. Form đó nuốt email của người đọc rồi không đi đâu cả — tệ hơn hẳn so với không có form. Nên ở đây tạm thời chỉ có RSS, và ô email sẽ bật lên khi có chỗ để gửi tới thật.",
+									"marks": [],
+									"_key": "k55"
+								}
+							],
+							"markDefs": [],
+							"_key": "k56"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Dev vẫn là một trong số ít nhóm còn đọc RSS thật. Với mười bài đầu tiên, thế là đủ.",
+									"marks": [],
+									"_key": "k57"
+								}
+							],
+							"markDefs": [],
+							"_key": "k58"
 						}
 					]
 				},
 				"bylines": [
 					{
-						"byline": "byline-editorial"
-					},
-					{
-						"byline": "byline-guest",
-						"roleLabel": "Guest essay"
+						"byline": "byline-dang"
 					}
 				],
 				"taxonomies": {
-					"category": ["development"],
-					"tag": ["opinion"]
+					"category": [
+						"ghi-chep"
+					],
+					"tag": [
+						"cloudflare",
+						"astro"
+					]
 				}
 			},
 			{
 				"id": "post-2",
-				"slug": "the-case-for-static",
-				"status": "published",
+				"slug": "migration-mot-cot-tren-bang-vai-trieu-row",
+				"status": "draft",
 				"data": {
-					"title": "The Case for Static",
-					"excerpt": "Static sites aren't a step backwards. They're what you get when you take performance and simplicity seriously.",
-					"featured_image": {
-						"$media": {
-							"url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&h=800&fit=crop",
-							"alt": "Laptop and coffee on a wooden table",
-							"filename": "case-for-static.jpg"
-						}
-					},
+					"title": "Migration một cột trên bảng vài triệu row: thứ Sequelize không nói cho bạn",
+					"excerpt": "changeColumn âm thầm bỏ NOT NULL và DEFAULT, VARCHAR sang TEXT bắt buộc rebuild bảng, và vì sao DDL không nên nằm trong deploy pipeline.",
 					"content": [
 						{
 							"_type": "block",
-							"style": "normal",
+							"style": "blockquote",
 							"children": [
 								{
 									"_type": "span",
-									"text": "There's a certain irony in the fact that the web started static, went dynamic, and is now swinging back toward static again. But the static sites of today aren't the hand-coded HTML pages of 1998. They're generated, optimized, and deployed to edge networks that serve them in milliseconds.",
-									"_key": "k1"
-								}
-							],
-							"_key": "k0"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
+									"text": "Dàn ý. Xoá ",
+									"marks": [],
+									"_key": "k59"
+								},
 								{
 									"_type": "span",
-									"text": "The pitch for server-rendered everything was compelling: dynamic content, personalization, real-time data. But most sites don't need most of that most of the time. A blog post doesn't need to be rendered on every request. A product page doesn't change every second.",
-									"_key": "k3"
+									"text": "draft: true",
+									"marks": [
+										"code"
+									],
+									"_key": "k60"
+								},
+								{
+									"_type": "span",
+									"text": " trong frontmatter khi viết xong.",
+									"marks": [],
+									"_key": "k61"
 								}
 							],
-							"_key": "k2"
+							"markDefs": [],
+							"_key": "k62"
 						},
 						{
 							"_type": "block",
@@ -458,11 +983,13 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "The performance argument",
-									"_key": "k5"
+									"text": "Mở bài",
+									"marks": [],
+									"_key": "k63"
 								}
 							],
-							"_key": "k4"
+							"markDefs": [],
+							"_key": "k64"
 						},
 						{
 							"_type": "block",
@@ -470,11 +997,41 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "A static file served from a CDN is as fast as the web gets. No cold starts, no database queries, no server-side rendering overhead. The Time to First Byte is essentially the network latency to your nearest edge node. You can't beat physics.",
-									"_key": "k7"
+									"text": "Bối cảnh: bảng nào, bao nhiêu dòng (làm tròn), đang phục vụ traffic gì. Migration tưởng một dòng.",
+									"marks": [],
+									"_key": "k65"
 								}
 							],
-							"_key": "k6"
+							"markDefs": [],
+							"_key": "k66"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Cái bẫy 1 — ",
+									"marks": [],
+									"_key": "k67"
+								},
+								{
+									"_type": "span",
+									"text": "changeColumn",
+									"marks": [
+										"code"
+									],
+									"_key": "k68"
+								},
+								{
+									"_type": "span",
+									"text": " không phải là ALTER có chọn lọc",
+									"marks": [],
+									"_key": "k69"
+								}
+							],
+							"markDefs": [],
+							"_key": "k70"
 						},
 						{
 							"_type": "block",
@@ -482,62 +1039,315 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "And when you do need dynamic behavior, you can add it surgically. An island of interactivity in a sea of static HTML. The best of both worlds, without paying the cost of either at all times.",
-									"_key": "k9"
+									"text": "Sequelize dựng lại toàn bộ định nghĩa cột từ object bạn truyền vào. Không khai báo lại ",
+									"marks": [],
+									"_key": "k71"
+								},
+								{
+									"_type": "span",
+									"text": "allowNull",
+									"marks": [
+										"code"
+									],
+									"_key": "k72"
+								},
+								{
+									"_type": "span",
+									"text": " và ",
+									"marks": [],
+									"_key": "k73"
+								},
+								{
+									"_type": "span",
+									"text": "defaultValue",
+									"marks": [
+										"code"
+									],
+									"_key": "k74"
+								},
+								{
+									"_type": "span",
+									"text": " thì chúng biến mất, không cảnh báo.",
+									"marks": [],
+									"_key": "k75"
 								}
 							],
-							"_key": "k8"
+							"markDefs": [],
+							"_key": "k76"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Ví dụ code trước / sau",
+									"marks": [],
+									"_key": "k77"
+								}
+							],
+							"markDefs": [],
+							"_key": "k78",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "SQL thật mà nó sinh ra (bật logging)",
+									"marks": [],
+									"_key": "k79"
+								}
+							],
+							"markDefs": [],
+							"_key": "k80",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Cái bẫy 2 — VARCHAR sang TEXT bắt buộc rebuild bảng",
+									"marks": [],
+									"_key": "k81"
+								}
+							],
+							"markDefs": [],
+							"_key": "k82"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Vì sao MySQL phải copy toàn bộ bảng",
+									"marks": [],
+									"_key": "k83"
+								}
+							],
+							"markDefs": [],
+							"_key": "k84",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Đo thời gian khoá thực tế",
+									"marks": [],
+									"_key": "k85"
+								}
+							],
+							"markDefs": [],
+							"_key": "k86",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "ALGORITHM=INPLACE",
+									"marks": [
+										"code"
+									],
+									"_key": "k87"
+								},
+								{
+									"_type": "span",
+									"text": " cứu được trường hợp nào, không cứu được trường hợp nào",
+									"marks": [],
+									"_key": "k88"
+								}
+							],
+							"markDefs": [],
+							"_key": "k89",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Cái bẫy 3 — DDL nằm trong deploy pipeline",
+									"marks": [],
+									"_key": "k90"
+								}
+							],
+							"markDefs": [],
+							"_key": "k91"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Deploy timeout giữa lúc ALTER đang chạy thì chuyện gì xảy ra",
+									"marks": [],
+									"_key": "k92"
+								}
+							],
+							"markDefs": [],
+							"_key": "k93",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Vì sao rollback không rollback được DDL",
+									"marks": [],
+									"_key": "k94"
+								}
+							],
+							"markDefs": [],
+							"_key": "k95",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Tách DDL ra khỏi deploy: quy trình thực tế đã dùng",
+									"marks": [],
+									"_key": "k96"
+								}
+							],
+							"markDefs": [],
+							"_key": "k97",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Cách làm đúng",
+									"marks": [],
+									"_key": "k98"
+								}
+							],
+							"markDefs": [],
+							"_key": "k99"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Backfill nhiều bước: thêm cột mới → ghi kép → backfill theo lô → đổi đọc → xoá cột cũ. Mỗi bước deploy riêng, mỗi bước đảo ngược được.",
+									"marks": [],
+									"_key": "k100"
+								}
+							],
+							"markDefs": [],
+							"_key": "k101"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Kết",
+									"marks": [],
+									"_key": "k102"
+								}
+							],
+							"markDefs": [],
+							"_key": "k103"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Điều rút ra: ORM che SQL đi là tiện, cho tới lúc kích thước bảng biến cái tiện đó thành sự cố.",
+									"marks": [],
+									"_key": "k104"
+								}
+							],
+							"markDefs": [],
+							"_key": "k105"
 						}
 					]
 				},
 				"bylines": [
 					{
-						"byline": "byline-editorial"
+						"byline": "byline-dang"
 					}
 				],
 				"taxonomies": {
-					"category": ["development"],
-					"tag": ["webdev", "opinion"]
+					"category": [
+						"backend"
+					],
+					"tag": [
+						"backend",
+						"database",
+						"sequelize"
+					]
 				}
 			},
 			{
 				"id": "post-3",
-				"slug": "learning-in-public",
-				"status": "published",
+				"slug": "shopify-webhook-khi-retry-la-binh-thuong",
+				"status": "draft",
 				"data": {
-					"title": "Learning in Public",
-					"excerpt": "Writing about what you're learning is the fastest way to find out what you don't actually understand.",
-					"featured_image": {
-						"$media": {
-							"url": "https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=1200&h=800&fit=crop",
-							"alt": "Notebook and pen on a desk",
-							"filename": "learning-in-public.jpg"
-						}
-					},
+					"title": "Xử lý Shopify webhook khi retry là chuyện bình thường",
+					"excerpt": "Idempotency key, giao không đúng thứ tự, queue hay xử lý trực tiếp, và chuyện gì xảy ra khi Shopify bắn lại event đúng lúc bạn đang deploy.",
 					"content": [
 						{
 							"_type": "block",
-							"style": "normal",
+							"style": "blockquote",
 							"children": [
 								{
 									"_type": "span",
-									"text": "I started writing about things I was learning not because I had anything original to say, but because I kept forgetting what I'd figured out. The blog posts were notes to my future self, published publicly more out of laziness than courage.",
-									"_key": "k1"
-								}
-							],
-							"_key": "k0"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
+									"text": "Dàn ý. Xoá ",
+									"marks": [],
+									"_key": "k106"
+								},
 								{
 									"_type": "span",
-									"text": "What I didn't expect was how much the writing itself would accelerate the learning. There's a particular kind of clarity that comes from trying to explain something to someone else. The gaps in your understanding, which you can happily ignore when the knowledge lives only in your head, become painfully obvious when you try to put it into sentences.",
-									"_key": "k3"
+									"text": "draft: true",
+									"marks": [
+										"code"
+									],
+									"_key": "k107"
+								},
+								{
+									"_type": "span",
+									"text": " khi viết xong.",
+									"marks": [],
+									"_key": "k108"
 								}
 							],
-							"_key": "k2"
+							"markDefs": [],
+							"_key": "k109"
 						},
 						{
 							"_type": "block",
@@ -545,11 +1355,13 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "The fear of being wrong",
-									"_key": "k5"
+									"text": "Tiền đề mà tài liệu không nhấn mạnh",
+									"marks": [],
+									"_key": "k110"
 								}
 							],
-							"_key": "k4"
+							"markDefs": [],
+							"_key": "k111"
 						},
 						{
 							"_type": "block",
@@ -557,11 +1369,41 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "The biggest barrier isn't time or writing skill. It's the fear of publishing something that turns out to be wrong. But here's the thing: being wrong publicly is one of the most efficient ways to learn. Someone will correct you, often kindly, and you'll remember that correction forever.",
-									"_key": "k7"
+									"text": "Webhook được giao ",
+									"marks": [],
+									"_key": "k112"
+								},
+								{
+									"_type": "span",
+									"text": "ít nhất một lần",
+									"marks": [
+										"em"
+									],
+									"_key": "k113"
+								},
+								{
+									"_type": "span",
+									"text": ", không phải đúng một lần. Retry không phải lỗi — nó là hành vi bình thường của hệ thống.",
+									"marks": [],
+									"_key": "k114"
 								}
 							],
-							"_key": "k6"
+							"markDefs": [],
+							"_key": "k115"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Idempotency",
+									"marks": [],
+									"_key": "k116"
+								}
+							],
+							"markDefs": [],
+							"_key": "k117"
 						},
 						{
 							"_type": "block",
@@ -569,57 +1411,329 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "The posts that helped me most weren't written by experts. They were written by people one step ahead of me on the same path, in language that hadn't yet been polished into abstraction. There's a place for that kind of writing, and it's more valuable than most people realize.",
-									"_key": "k9"
+									"text": "Dùng ",
+									"marks": [],
+									"_key": "k118"
+								},
+								{
+									"_type": "span",
+									"text": "X-Shopify-Webhook-Id",
+									"marks": [
+										"code"
+									],
+									"_key": "k119"
+								},
+								{
+									"_type": "span",
+									"text": " chứ đừng tự sinh key từ payload",
+									"marks": [],
+									"_key": "k120"
 								}
 							],
-							"_key": "k8"
+							"markDefs": [],
+							"_key": "k121",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Lưu ở đâu, TTL bao lâu",
+									"marks": [],
+									"_key": "k122"
+								}
+							],
+							"markDefs": [],
+							"_key": "k123",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Race condition khi hai bản sao của cùng event tới song song",
+									"marks": [],
+									"_key": "k124"
+								}
+							],
+							"markDefs": [],
+							"_key": "k125",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Giao không đúng thứ tự",
+									"marks": [],
+									"_key": "k126"
+								}
+							],
+							"markDefs": [],
+							"_key": "k127"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "orders/updated",
+									"marks": [
+										"code"
+									],
+									"_key": "k128"
+								},
+								{
+									"_type": "span",
+									"text": " tới trước ",
+									"marks": [],
+									"_key": "k129"
+								},
+								{
+									"_type": "span",
+									"text": "orders/create",
+									"marks": [
+										"code"
+									],
+									"_key": "k130"
+								}
+							],
+							"markDefs": [],
+							"_key": "k131",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Vì sao timestamp trong payload không đủ để sắp thứ tự",
+									"marks": [],
+									"_key": "k132"
+								}
+							],
+							"markDefs": [],
+							"_key": "k133",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Reconcile bằng cách gọi ngược lại API",
+									"marks": [],
+									"_key": "k134"
+								}
+							],
+							"markDefs": [],
+							"_key": "k135",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Nhận rồi xếp hàng, đừng xử lý ngay",
+									"marks": [],
+									"_key": "k136"
+								}
+							],
+							"markDefs": [],
+							"_key": "k137"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Trần 5 giây của Shopify",
+									"marks": [],
+									"_key": "k138"
+								}
+							],
+							"markDefs": [],
+							"_key": "k139",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Trả 200 trước, xử lý sau — và cái giá phải trả",
+									"marks": [],
+									"_key": "k140"
+								}
+							],
+							"markDefs": [],
+							"_key": "k141",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Dead letter queue: khi nào bỏ cuộc",
+									"marks": [],
+									"_key": "k142"
+								}
+							],
+							"markDefs": [],
+							"_key": "k143",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Deploy giữa lúc đang nhận webhook",
+									"marks": [],
+									"_key": "k144"
+								}
+							],
+							"markDefs": [],
+							"_key": "k145"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Kịch bản xấu nhất đã gặp",
+									"marks": [],
+									"_key": "k146"
+								}
+							],
+							"markDefs": [],
+							"_key": "k147",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Graceful shutdown, drain connection",
+									"marks": [],
+									"_key": "k148"
+								}
+							],
+							"markDefs": [],
+							"_key": "k149",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Kết",
+									"marks": [],
+									"_key": "k150"
+								}
+							],
+							"markDefs": [],
+							"_key": "k151"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Checklist ngắn để rà lại handler đang có.",
+									"marks": [],
+									"_key": "k152"
+								}
+							],
+							"markDefs": [],
+							"_key": "k153"
 						}
 					]
 				},
+				"bylines": [
+					{
+						"byline": "byline-dang"
+					}
+				],
 				"taxonomies": {
-					"category": ["notes"],
-					"tag": ["opinion"]
+					"category": [
+						"backend"
+					],
+					"tag": [
+						"shopify",
+						"webhook",
+						"backend"
+					]
 				}
 			},
 			{
 				"id": "post-4",
-				"slug": "small-tools-big-impact",
-				"status": "published",
+				"slug": "vi-sao-chon-langgraph",
+				"status": "draft",
 				"data": {
-					"title": "Small Tools, Big Impact",
-					"excerpt": "The best developer tools do one thing well and get out of your way. A love letter to focused software.",
-					"featured_image": {
-						"$media": {
-							"url": "https://images.unsplash.com/photo-1575026615908-666710ae5e47?w=1200&h=800&fit=crop",
-							"alt": "Wrenches and hand tools hanging on a workshop wall",
-							"filename": "small-tools.jpg"
-						}
-					},
+					"title": "Vì sao chúng tôi chọn LangGraph thay vì tự viết agent loop",
+					"excerpt": "Phần đánh đổi, không phải phần tutorial: state machine tường minh so với để model tự quyết, và ranh giới không cho agent bước qua.",
 					"content": [
 						{
 							"_type": "block",
-							"style": "normal",
+							"style": "blockquote",
 							"children": [
 								{
 									"_type": "span",
-									"text": "There's a class of software that doesn't get enough appreciation. Not the frameworks or the platforms or the IDEs, but the small, sharp tools that solve one problem so well you stop thinking about them. They become invisible, which is the highest compliment you can pay a tool.",
-									"_key": "k1"
-								}
-							],
-							"_key": "k0"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
+									"text": "Dàn ý. Xoá ",
+									"marks": [],
+									"_key": "k154"
+								},
 								{
 									"_type": "span",
-									"text": "I'm talking about things like ripgrep, which searches code so fast it changed how I think about searching. Or jq, which makes JSON feel like a first-class data format in the terminal. Or curl, which has been quietly powering the internet's plumbing for decades.",
-									"_key": "k3"
+									"text": "draft: true",
+									"marks": [
+										"code"
+									],
+									"_key": "k155"
+								},
+								{
+									"_type": "span",
+									"text": " khi viết xong.",
+									"marks": [],
+									"_key": "k156"
 								}
 							],
-							"_key": "k2"
+							"markDefs": [],
+							"_key": "k157"
 						},
 						{
 							"_type": "block",
@@ -627,11 +1741,13 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "The Unix philosophy, revisited",
-									"_key": "k5"
+									"text": "Điểm xuất phát: agent loop tự viết",
+									"marks": [],
+									"_key": "k158"
 								}
 							],
-							"_key": "k4"
+							"markDefs": [],
+							"_key": "k159"
 						},
 						{
 							"_type": "block",
@@ -639,11 +1755,27 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Do one thing well. The advice is old enough to be a cliche, but the best modern tools still follow it. They don't try to be platforms. They don't have plugin ecosystems or configuration languages or startup wizards. They do their job and they compose with other tools that do theirs.",
-									"_key": "k7"
+									"text": "While loop, gọi tool, nối kết quả vào context. Chạy được. Vấn đề lộ ra ở đâu.",
+									"marks": [],
+									"_key": "k160"
 								}
 							],
-							"_key": "k6"
+							"markDefs": [],
+							"_key": "k161"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Ba thứ khiến chúng tôi đổi",
+									"marks": [],
+									"_key": "k162"
+								}
+							],
+							"markDefs": [],
+							"_key": "k163"
 						},
 						{
 							"_type": "block",
@@ -651,57 +1783,281 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "The temptation is always to add more. One more feature, one more option, one more integration. But every addition is a decision someone has to make, a path through the code that has to be maintained, a thing that can break. The best tools resist this. They stay small, and in staying small, they stay reliable.",
-									"_key": "k9"
+									"text": "Không tái hiện được lỗi — không có state để replay",
+									"marks": [],
+									"_key": "k164"
 								}
 							],
-							"_key": "k8"
+							"markDefs": [],
+							"_key": "k165",
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Không cắm được human-in-the-loop vào giữa chừng",
+									"marks": [],
+									"_key": "k166"
+								}
+							],
+							"markDefs": [],
+							"_key": "k167",
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Mỗi lần đổi luồng là sửa prompt, không phải sửa code",
+									"marks": [],
+									"_key": "k168"
+								}
+							],
+							"markDefs": [],
+							"_key": "k169",
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "LangGraph giải quyết được gì",
+									"marks": [],
+									"_key": "k170"
+								}
+							],
+							"markDefs": [],
+							"_key": "k171"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "State machine tường minh: luồng nằm trong code, không nằm trong prompt",
+									"marks": [],
+									"_key": "k172"
+								}
+							],
+							"markDefs": [],
+							"_key": "k173",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Checkpoint và replay",
+									"marks": [],
+									"_key": "k174"
+								}
+							],
+							"markDefs": [],
+							"_key": "k175",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Interrupt để chờ người duyệt",
+									"marks": [],
+									"_key": "k176"
+								}
+							],
+							"markDefs": [],
+							"_key": "k177",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Cái giá phải trả",
+									"marks": [],
+									"_key": "k178"
+								}
+							],
+							"markDefs": [],
+							"_key": "k179"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Trừu tượng thêm một tầng, debug qua tầng đó",
+									"marks": [],
+									"_key": "k180"
+								}
+							],
+							"markDefs": [],
+							"_key": "k181",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Bị khoá vào một cách mô hình hoá bài toán",
+									"marks": [],
+									"_key": "k182"
+								}
+							],
+							"markDefs": [],
+							"_key": "k183",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Version còn đổi nhanh",
+									"marks": [],
+									"_key": "k184"
+								}
+							],
+							"markDefs": [],
+							"_key": "k185",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Ranh giới chúng tôi vẽ",
+									"marks": [],
+									"_key": "k186"
+								}
+							],
+							"markDefs": [],
+							"_key": "k187"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Model quyết cái gì, code quyết cái gì. Nguyên tắc cụ thể đã áp dụng.",
+									"marks": [],
+									"_key": "k188"
+								}
+							],
+							"markDefs": [],
+							"_key": "k189"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Khi nào đừng dùng",
+									"marks": [],
+									"_key": "k190"
+								}
+							],
+							"markDefs": [],
+							"_key": "k191"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Nếu luồng chỉ có một bước gọi tool thì framework là chi phí thuần.",
+									"marks": [],
+									"_key": "k192"
+								}
+							],
+							"markDefs": [],
+							"_key": "k193"
 						}
 					]
 				},
+				"bylines": [
+					{
+						"byline": "byline-dang"
+					}
+				],
 				"taxonomies": {
-					"category": ["development"],
-					"tag": ["tools"]
+					"category": [
+						"agent"
+					],
+					"tag": [
+						"agent",
+						"langgraph",
+						"ai"
+					]
 				}
 			},
 			{
 				"id": "post-5",
-				"slug": "designing-with-constraints",
-				"status": "published",
+				"slug": "do-agent-the-nao",
+				"status": "draft",
 				"data": {
-					"title": "Designing with Constraints",
-					"excerpt": "Limitations aren't obstacles to creativity. They're the structure that makes creativity possible.",
-					"featured_image": {
-						"$media": {
-							"url": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=1200&h=800&fit=crop",
-							"alt": "Pencils and design tools on a desk",
-							"filename": "designing-with-constraints.jpg"
-						}
-					},
+					"title": "Đo agent thế nào để biết nó đang tốt lên hay tệ đi",
+					"excerpt": "Eval, regression suite, và cách biết một lần đổi prompt không phá vỡ thứ khác.",
 					"content": [
 						{
 							"_type": "block",
-							"style": "normal",
+							"style": "blockquote",
 							"children": [
 								{
 									"_type": "span",
-									"text": "Give a designer a blank canvas and unlimited time, and they'll often produce something mediocre. Give them a tight brief, a small screen, and a deadline, and they'll surprise you. This isn't a paradox - it's how creativity actually works.",
-									"_key": "k1"
-								}
-							],
-							"_key": "k0"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
+									"text": "Dàn ý. Xoá ",
+									"marks": [],
+									"_key": "k194"
+								},
 								{
 									"_type": "span",
-									"text": "Constraints force decisions. When you can't use more than two typefaces, you have to choose carefully. When the page has to load in under a second, every element earns its place. When the interface has to work on a 320px screen, you discover what's truly essential.",
-									"_key": "k3"
+									"text": "draft: true",
+									"marks": [
+										"code"
+									],
+									"_key": "k195"
+								},
+								{
+									"_type": "span",
+									"text": " khi viết xong.",
+									"marks": [],
+									"_key": "k196"
 								}
 							],
-							"_key": "k2"
+							"markDefs": [],
+							"_key": "k197"
 						},
 						{
 							"_type": "block",
@@ -709,11 +2065,13 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Embracing the box",
-									"_key": "k5"
+									"text": "Vấn đề",
+									"marks": [],
+									"_key": "k198"
 								}
 							],
-							"_key": "k4"
+							"markDefs": [],
+							"_key": "k199"
 						},
 						{
 							"_type": "block",
@@ -721,11 +2079,27 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "The web itself is a constraint. HTML flows in one direction. CSS has a box model. Browsers have viewport sizes and font rendering quirks. You can fight these constraints or you can work with them, and the results are dramatically different.",
-									"_key": "k7"
+									"text": "Đổi prompt xong thấy \"có vẻ tốt hơn\". Dựa vào đâu để nói câu đó.",
+									"marks": [],
+									"_key": "k200"
 								}
 							],
-							"_key": "k6"
+							"markDefs": [],
+							"_key": "k201"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Tầng 1 — assertion tất định",
+									"marks": [],
+									"_key": "k202"
+								}
+							],
+							"markDefs": [],
+							"_key": "k203"
 						},
 						{
 							"_type": "block",
@@ -733,57 +2107,247 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "The designs I admire most don't look like they were forced through a framework. They look like they grew naturally from the medium, respecting its grain rather than working against it. That only happens when you treat constraints as creative partners rather than enemies.",
-									"_key": "k9"
+									"text": "Những thứ đúng/sai rõ ràng: gọi đúng tool chưa, JSON hợp lệ chưa, có rò rỉ trường dữ liệu không được phép không.",
+									"marks": [],
+									"_key": "k204"
 								}
 							],
-							"_key": "k8"
+							"markDefs": [],
+							"_key": "k205"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Tầng 2 — regression suite",
+									"marks": [],
+									"_key": "k206"
+								}
+							],
+							"markDefs": [],
+							"_key": "k207"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Bộ case lấy từ lỗi thật đã gặp",
+									"marks": [],
+									"_key": "k208"
+								}
+							],
+							"markDefs": [],
+							"_key": "k209",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Case cũ không được hỏng khi thêm case mới",
+									"marks": [],
+									"_key": "k210"
+								}
+							],
+							"markDefs": [],
+							"_key": "k211",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Chạy ở đâu trong CI, chạy mất bao lâu, tốn bao nhiêu",
+									"marks": [],
+									"_key": "k212"
+								}
+							],
+							"markDefs": [],
+							"_key": "k213",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Tầng 3 — LLM làm giám khảo",
+									"marks": [],
+									"_key": "k214"
+								}
+							],
+							"markDefs": [],
+							"_key": "k215"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Chỗ nó hữu ích thật",
+									"marks": [],
+									"_key": "k216"
+								}
+							],
+							"markDefs": [],
+							"_key": "k217",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Chỗ nó cho ra điểm số vô nghĩa",
+									"marks": [],
+									"_key": "k218"
+								}
+							],
+							"markDefs": [],
+							"_key": "k219",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Hiệu chỉnh giám khảo dựa trên nhãn người chấm",
+									"marks": [],
+									"_key": "k220"
+								}
+							],
+							"markDefs": [],
+							"_key": "k221",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Đọc con số",
+									"marks": [],
+									"_key": "k222"
+								}
+							],
+							"markDefs": [],
+							"_key": "k223"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Vì sao \"độ chính xác 92%\" gần như luôn là con số vô dụng nếu không kèm phân bố lỗi.",
+									"marks": [],
+									"_key": "k224"
+								}
+							],
+							"markDefs": [],
+							"_key": "k225"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Bộ khung tối thiểu",
+									"marks": [],
+									"_key": "k226"
+								}
+							],
+							"markDefs": [],
+							"_key": "k227"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Cái gì cần có trước khi đưa agent ra production.",
+									"marks": [],
+									"_key": "k228"
+								}
+							],
+							"markDefs": [],
+							"_key": "k229"
 						}
 					]
 				},
+				"bylines": [
+					{
+						"byline": "byline-dang"
+					}
+				],
 				"taxonomies": {
-					"category": ["design"],
-					"tag": ["creativity"]
+					"category": [
+						"agent"
+					],
+					"tag": [
+						"agent",
+						"eval",
+						"ai"
+					]
 				}
 			},
 			{
 				"id": "post-6",
-				"slug": "a-weekend-with-a-side-project",
-				"status": "published",
+				"slug": "cho-agent-doc-crm",
+				"status": "draft",
 				"data": {
-					"title": "A Weekend with a Side Project",
-					"excerpt": "No stakeholders, no deadlines, no Jira tickets. Just you and a dumb idea that might turn into something.",
-					"featured_image": {
-						"$media": {
-							"url": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1200&h=800&fit=crop",
-							"alt": "Code on a screen with a dark theme",
-							"filename": "weekend-side-project.jpg"
-						}
-					},
+					"title": "Cho agent đọc CRM: thiết kế ranh giới, không thiết kế prompt",
+					"excerpt": "Phân quyền, audit log, human-in-the-loop và dữ liệu khách hàng — vì sao \"prompt bảo nó đừng làm\" không phải là một cơ chế kiểm soát.",
 					"content": [
 						{
 							"_type": "block",
-							"style": "normal",
+							"style": "blockquote",
 							"children": [
 								{
 									"_type": "span",
-									"text": "Saturday morning. Coffee's made, the house is quiet, and I've got an idea that's been nagging at me all week. Not a good idea, necessarily - just a persistent one. A small tool that does a thing I keep doing manually. How hard could it be?",
-									"_key": "k1"
-								}
-							],
-							"_key": "k0"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
+									"text": "Dàn ý. Xoá ",
+									"marks": [],
+									"_key": "k230"
+								},
 								{
 									"_type": "span",
-									"text": "This is the best kind of programming. No requirements document, no sprint planning, no pull request reviews. Just a text editor and a problem. The freedom to make terrible architectural decisions, rewrite everything twice, and follow tangents that turn out to be dead ends.",
-									"_key": "k3"
+									"text": "draft: true",
+									"marks": [
+										"code"
+									],
+									"_key": "k231"
+								},
+								{
+									"_type": "span",
+									"text": " khi viết xong.",
+									"marks": [],
+									"_key": "k232"
 								}
 							],
-							"_key": "k2"
+							"markDefs": [],
+							"_key": "k233"
 						},
 						{
 							"_type": "block",
@@ -791,11 +2355,13 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Why side projects matter",
-									"_key": "k5"
+									"text": "Tiền đề",
+									"marks": [],
+									"_key": "k234"
 								}
 							],
-							"_key": "k4"
+							"markDefs": [],
+							"_key": "k235"
 						},
 						{
 							"_type": "block",
@@ -803,11 +2369,41 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Side projects are where you learn things your day job would never teach you. Not because the problems are harder, but because you're free to take risks. Try a language you've never used. Build something without a framework. Deploy to a platform you've only read about. The stakes are zero, which makes the learning maximum.",
-									"_key": "k7"
+									"text": "Prompt là gợi ý, không phải hàng rào. Mọi thứ agent ",
+									"marks": [],
+									"_key": "k236"
+								},
+								{
+									"_type": "span",
+									"text": "có thể",
+									"marks": [
+										"em"
+									],
+									"_key": "k237"
+								},
+								{
+									"_type": "span",
+									"text": " làm, cuối cùng nó sẽ làm.",
+									"marks": [],
+									"_key": "k238"
 								}
 							],
-							"_key": "k6"
+							"markDefs": [],
+							"_key": "k239"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Thiết kế theo capability",
+									"marks": [],
+									"_key": "k240"
+								}
+							],
+							"markDefs": [],
+							"_key": "k241"
 						},
 						{
 							"_type": "block",
@@ -815,57 +2411,247 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "By Sunday evening, the thing sort of works. It's rough, the error handling is nonexistent, and the README is a single sentence. But it solves the problem I set out to solve, and I learned three things I didn't know on Friday. Not a bad weekend.",
-									"_key": "k9"
+									"text": "Agent nhận quyền gì, không nhận quyền gì",
+									"marks": [],
+									"_key": "k242"
 								}
 							],
-							"_key": "k8"
+							"markDefs": [],
+							"_key": "k243",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Thu hẹp phạm vi ở tầng tool chứ không ở tầng prompt",
+									"marks": [],
+									"_key": "k244"
+								}
+							],
+							"markDefs": [],
+							"_key": "k245",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Tách quyền đọc và quyền ghi",
+									"marks": [],
+									"_key": "k246"
+								}
+							],
+							"markDefs": [],
+							"_key": "k247",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Dữ liệu khách hàng",
+									"marks": [],
+									"_key": "k248"
+								}
+							],
+							"markDefs": [],
+							"_key": "k249"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Trường nào không bao giờ vào context",
+									"marks": [],
+									"_key": "k250"
+								}
+							],
+							"markDefs": [],
+							"_key": "k251",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Che dữ liệu ngay ở tầng truy vấn",
+									"marks": [],
+									"_key": "k252"
+								}
+							],
+							"markDefs": [],
+							"_key": "k253",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Rò rỉ qua log — chỗ dễ quên nhất",
+									"marks": [],
+									"_key": "k254"
+								}
+							],
+							"markDefs": [],
+							"_key": "k255",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Audit",
+									"marks": [],
+									"_key": "k256"
+								}
+							],
+							"markDefs": [],
+							"_key": "k257"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Ghi lại cái gì, giữ bao lâu, ai đọc được.",
+									"marks": [],
+									"_key": "k258"
+								}
+							],
+							"markDefs": [],
+							"_key": "k259"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Human-in-the-loop",
+									"marks": [],
+									"_key": "k260"
+								}
+							],
+							"markDefs": [],
+							"_key": "k261"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Hành động nào bắt buộc phải có người duyệt, và đặt chốt duyệt ở đâu để không làm hỏng trải nghiệm.",
+									"marks": [],
+									"_key": "k262"
+								}
+							],
+							"markDefs": [],
+							"_key": "k263"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Tham chiếu: mô hình sandbox của EmDash",
+									"marks": [],
+									"_key": "k264"
+								}
+							],
+							"markDefs": [],
+							"_key": "k265"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Cloudflare nhốt plugin trong V8 isolate với capability khai báo tường minh thay vì tin mặc định. Cùng một tư duy áp cho agent: ranh giới nằm ở hạ tầng, không nằm ở lời dặn.",
+									"marks": [],
+									"_key": "k266"
+								}
+							],
+							"markDefs": [],
+							"_key": "k267"
 						}
 					]
 				},
+				"bylines": [
+					{
+						"byline": "byline-dang"
+					}
+				],
 				"taxonomies": {
-					"category": ["development"],
-					"tag": ["creativity"]
+					"category": [
+						"agent"
+					],
+					"tag": [
+						"agent",
+						"security",
+						"ai"
+					]
 				}
 			},
 			{
 				"id": "post-7",
-				"slug": "notes-on-simplicity",
-				"status": "published",
+				"slug": "review-code-cua-nguoi-dung-ai",
+				"status": "draft",
 				"data": {
-					"title": "Notes on Simplicity",
-					"excerpt": "Simplicity isn't the absence of complexity. It's the result of understanding a problem well enough to solve it cleanly.",
-					"featured_image": {
-						"$media": {
-							"url": "https://images.unsplash.com/photo-1559051668-e1fa58f25786?w=1200&h=800&fit=crop",
-							"alt": "Geometric pattern carved into white paper",
-							"filename": "notes-on-simplicity.jpg"
-						}
-					},
+					"title": "Review code của người đang dùng AI để viết code",
+					"excerpt": "Cái gì cần nhìn khác đi, và câu hỏi nào bây giờ đáng hỏi hơn hẳn so với trước.",
 					"content": [
 						{
 							"_type": "block",
-							"style": "normal",
+							"style": "blockquote",
 							"children": [
 								{
 									"_type": "span",
-									"text": "Every piece of software starts simple. A few files, a clear purpose, a small surface area. Then features get added, edge cases get handled, and before long you're looking at something that requires a diagram to understand. This isn't inevitable, but it takes discipline to prevent.",
-									"_key": "k1"
-								}
-							],
-							"_key": "k0"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
+									"text": "Dàn ý. Xoá ",
+									"marks": [],
+									"_key": "k268"
+								},
 								{
 									"_type": "span",
-									"text": "The hard part of simplicity isn't the initial design. It's the ongoing resistance to complication. Every feature request, every bug fix, every refactor is an opportunity to add complexity. Saying no is the most important design skill, and the least celebrated.",
-									"_key": "k3"
+									"text": "draft: true",
+									"marks": [
+										"code"
+									],
+									"_key": "k269"
+								},
+								{
+									"_type": "span",
+									"text": " khi viết xong.",
+									"marks": [],
+									"_key": "k270"
 								}
 							],
-							"_key": "k2"
+							"markDefs": [],
+							"_key": "k271"
 						},
 						{
 							"_type": "block",
@@ -873,11 +2659,13 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Removing as a feature",
-									"_key": "k5"
+									"text": "Cái đã đổi",
+									"marks": [],
+									"_key": "k272"
 								}
 							],
-							"_key": "k4"
+							"markDefs": [],
+							"_key": "k273"
 						},
 						{
 							"_type": "block",
@@ -885,11 +2673,27 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "The best version of a product often has fewer features than the previous one. Not because features were missing, but because someone had the courage to remove things that weren't earning their keep. Every feature has a cost - in maintenance, in cognitive load, in the weight of the interface.",
-									"_key": "k7"
+									"text": "Code trông chỉn chu hơn. Điều đó không có nghĩa là nó được hiểu rõ hơn.",
+									"marks": [],
+									"_key": "k274"
 								}
 							],
-							"_key": "k6"
+							"markDefs": [],
+							"_key": "k275"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Ba thứ tôi nhìn khác đi",
+									"marks": [],
+									"_key": "k276"
+								}
+							],
+							"markDefs": [],
+							"_key": "k277"
 						},
 						{
 							"_type": "block",
@@ -897,39 +2701,147 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Simplicity is a practice, not a destination. You never arrive at simple. You just keep asking: is this necessary? Could this be clearer? Is there a way to solve this problem by removing something instead of adding something? The answer is yes more often than you'd expect.",
-									"_key": "k9"
+									"text": "Xử lý lỗi ở biên — chỗ AI hay viết cho có",
+									"marks": [],
+									"_key": "k278"
 								}
 							],
-							"_key": "k8"
+							"markDefs": [],
+							"_key": "k279",
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Code đúng cục bộ nhưng lệch với phần còn lại của hệ thống",
+									"marks": [],
+									"_key": "k280"
+								}
+							],
+							"markDefs": [],
+							"_key": "k281",
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Test khẳng định lại đúng cái bug",
+									"marks": [],
+									"_key": "k282"
+								}
+							],
+							"markDefs": [],
+							"_key": "k283",
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Câu hỏi hữu ích nhất khi review",
+									"marks": [],
+									"_key": "k284"
+								}
+							],
+							"markDefs": [],
+							"_key": "k285"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "\"Chuyện gì xảy ra nếu cái này nhận đầu vào X?\" — và im lặng chờ.",
+									"marks": [],
+									"_key": "k286"
+								}
+							],
+							"markDefs": [],
+							"_key": "k287"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Cái tôi cố tình không làm",
+									"marks": [],
+									"_key": "k288"
+								}
+							],
+							"markDefs": [],
+							"_key": "k289"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Không truy xem đoạn nào do AI viết. Không phải chuyện của review.",
+									"marks": [],
+									"_key": "k290"
+								}
+							],
+							"markDefs": [],
+							"_key": "k291"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Kết",
+									"marks": [],
+									"_key": "k292"
+								}
+							],
+							"markDefs": [],
+							"_key": "k293"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Trách nhiệm không dịch chuyển. Ai mở PR, người đó chịu trách nhiệm.",
+									"marks": [],
+									"_key": "k294"
+								}
+							],
+							"markDefs": [],
+							"_key": "k295"
 						}
 					]
 				},
+				"bylines": [
+					{
+						"byline": "byline-dang"
+					}
+				],
 				"taxonomies": {
-					"category": ["notes"],
-					"tag": ["opinion"]
-				}
-			},
-			{
-				"id": "post-draft",
-				"slug": "work-in-progress",
-				"status": "draft",
-				"data": {
-					"title": "Work in Progress",
-					"excerpt": "This post is still being written.",
-					"content": [
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "This is a draft post that won't appear in the public listing.",
-									"_key": "k1"
-								}
-							],
-							"_key": "k0"
-						}
+					"category": [
+						"ghi-chep"
+					],
+					"tag": [
+						"leadership",
+						"code-review",
+						"ai"
 					]
 				}
 			}
