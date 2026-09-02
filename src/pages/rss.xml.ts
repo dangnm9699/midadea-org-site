@@ -4,7 +4,11 @@ import { getEmDashCollection, getSiteSettings } from "emdash";
 import { resolveBlogSiteIdentity } from "../utils/site-identity";
 
 export const GET: APIRoute = async ({ site, url }) => {
-	const siteUrl = site?.toString() || url.origin;
+	// Astro chuẩn hoá `site` thành URL nên toString() luôn kèm "/" cuối.
+	// Ghép thẳng với "/posts/..." sẽ ra "https://host//posts/...", và trình
+	// đọc RSS coi đó là URL khác -> bài bị trùng. url.origin thì không có
+	// dấu này, nên chỉ cắt cho nhánh `site`.
+	const siteUrl = (site?.toString() || url.origin).replace(/\/+$/, "");
 	const { siteTitle, siteTagline } = resolveBlogSiteIdentity(await getSiteSettings());
 
 	const { entries: posts } = await getEmDashCollection("posts", {

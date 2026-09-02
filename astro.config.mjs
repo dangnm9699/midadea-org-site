@@ -6,6 +6,8 @@ import { defineConfig, fontProviders } from "astro/config";
 import emdash from "emdash/astro";
 
 export default defineConfig({
+	// Astro dùng cho URL tuyệt đối (rss.xml.ts đọc `site`).
+	site: "https://midadean.org",
 	output: "server",
 	adapter: cloudflare(),
 	image: {
@@ -15,6 +17,11 @@ export default defineConfig({
 	integrations: [
 		react(),
 		emdash({
+			// Origin người dùng thật sự mở. Không đặt thì EmDash rơi về origin
+			// của request, nên canonical/OG đổi theo host truy cập — vào bằng
+			// *.workers.dev là sinh ra URL workers.dev, trùng lặp với domain thật.
+			// Giá trị này cũng định nghĩa rpId cho passkey.
+			siteUrl: "https://midadean.org",
 			database: d1({ binding: "DB", session: "auto" }),
 			storage: r2({ binding: "MEDIA" }),
 			plugins: [formsPlugin()],
