@@ -4,6 +4,15 @@
 	"main": "./src/worker.ts",
 	"compatibility_date": "2026-02-24",
 	"compatibility_flags": ["nodejs_compat"],
+	// Ghim sẵn KV namespace đã tồn tại. Không ghim thì @astrojs/cloudflare
+	// tiêm binding SESSION không kèm id, wrangler đi tạo namespace mới tên
+	// "midadea-org-site-session" và đâm vào cái đã có (API 10014).
+	"kv_namespaces": [
+		{
+			"binding": "SESSION",
+			"id": "dbadfa8519c146dc9d77c4028c8bf80c",
+		},
+	],
 	"d1_databases": [
 		{
 			"binding": "DB",
