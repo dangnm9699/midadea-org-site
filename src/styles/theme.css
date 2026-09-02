@@ -1,32 +1,73 @@
 /*
-  theme.css -- your theme overrides. This is the file to edit to
-  retheme the site.
+  theme.css -- theme overrides cho midadean.org.
 
-  Every design token lives in src/styles/tokens.css (colors, type
-  scale, spacing, layout, shadows) with its default value. Override any
-  of them here: declarations in this file are unlayered, so they always
-  beat the @layer base defaults in tokens.css.
+  Hướng: kỹ thuật, sans gọn. Giữ Inter, đẩy contrast lên, thay xanh
+  mặc định bằng petrol trầm, tách nền code khỏi nền trang.
 
-  Colors are defined with light-dark(). Overriding with a plain color
-  changes light and dark mode at once; use light-dark(<light>, <dark>)
-  to set different values per mode.
+  File này không nằm trong @layer nào nên luôn thắng các mặc định
+  @layer base trong tokens.css. Không cần !important.
 
-  Webfonts are loaded in astro.config.mjs (--font-body, --font-mono).
-  Swap the loaded font there; use overrides here for system fonts or a
-  separate heading face.
-
-  Example:
-
-  :root {
-    --color-brand: light-dark(#0f766e, #2dd4bf);
-    --font-heading: "Iowan Old Style", Georgia, serif;
-    --radius: 8px;
-  }
+  Màu dùng light-dark(<sáng>, <tối>). Ghi đè bằng màu trơn sẽ đổi cả
+  hai chế độ cùng lúc.
 */
 
 :root {
+	/* ---- Màu ----
+	   Text đậm hơn mặc định (#1a1a1a/#ededed) để chữ Inter ở cỡ nhỏ
+	   không bị bạc. */
+	--color-bg: light-dark(#ffffff, #0c0c0d);
+	--color-text: light-dark(#111111, #f0f0ee);
+	--color-text-secondary: light-dark(#474747, #b0b0ad);
+
+	/* #8b8b8b mặc định chỉ đạt ~3.4:1 trên nền trắng, trượt WCAG AA
+	   cho chữ nhỏ. #6f6f6f đạt ~4.9:1. */
+	--color-muted: light-dark(#6f6f6f, #8a8a86);
+
+	--color-border: light-dark(#e2e2df, #2b2b2e);
+	--color-border-subtle: light-dark(#efefec, #1c1c1f);
+
+	/* Nền của pre và inline code. Tách rõ khỏi --color-bg hơn mặc định
+	   để khối code nổi lên mà không cần viền dày. */
+	--color-bg-subtle: light-dark(#fafaf8, #131316);
+	--color-surface: light-dark(#f3f3f0, #17171b);
+
+	/* Petrol trầm thay #0066cc. Đủ tương phản cho link chạy trong
+	   thân bài, nhưng không hút mắt khỏi chữ. */
+	--color-brand: light-dark(#0f5c6e, #6ec6d9);
+	--color-brand-hover: light-dark(#0a4351, #96dbe9);
+
+	/* ---- Chữ ---- */
+	--font-size-base: 1.0625rem;
+	--leading-relaxed: 1.75;
+	--font-weight-heading: 650;
+	--font-weight-display: 720;
+
+	/* ---- Hình khối ----
+	   Bo góc nhỏ lại cho gọn. */
+	--radius: 3px;
+	--radius-lg: 6px;
+
+	/* Bóng nhạt hơn: giao diện phẳng, phân cấp bằng viền và khoảng trắng. */
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+	--shadow-lg: 0 6px 24px rgba(0, 0, 0, 0.09);
 }
 
-.nav-admin {
-	margin-inline-start: var(--spacing-5);
+/*
+  Trình duyệt chưa hỗ trợ light-dark() (Safari < 17.5, Chrome < 123) sẽ
+  bỏ qua toàn bộ khai báo màu ở trên và rơi về mặc định cũ trong
+  tokens.css. Lặp lại giá trị sáng ở đây để chúng vẫn nhận đúng theme.
+*/
+@supports not (color: light-dark(#000, #fff)) {
+	:root {
+		--color-bg: #ffffff;
+		--color-bg-subtle: #fafaf8;
+		--color-text: #111111;
+		--color-text-secondary: #474747;
+		--color-muted: #6f6f6f;
+		--color-border: #e2e2df;
+		--color-border-subtle: #efefec;
+		--color-surface: #f3f3f0;
+		--color-brand: #0f5c6e;
+		--color-brand-hover: #0a4351;
+	}
 }

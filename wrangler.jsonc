@@ -25,8 +25,10 @@
 			"bucket_name": "midadea-org-site","preview_bucket_name": "midadea-org-site",
 		},
 	],
-	// General maintenance plus the bounded Media Usage lane (see src/worker.ts)
+	// General maintenance plus the bounded Media Usage lane (see src/worker.ts).
+	// Giãn từ mỗi phút xuống 5 và 15 phút: blog một tác giả không cần
+	// nhịp một phút, và mỗi lần cron chạy đều tính vào hạn mức request.
 	"triggers": {
-		"crons": ["* * * * *", "*/2 * * * *"],
+		"crons": ["*/5 * * * *", "*/15 * * * *"],
 	},
 }
