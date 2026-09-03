@@ -162,6 +162,26 @@
 				{
 					"slug": "code-review",
 					"label": "Code review"
+				},
+				{
+					"slug": "emdash",
+					"label": "EmDash"
+				},
+				{
+					"slug": "css",
+					"label": "CSS"
+				},
+				{
+					"slug": "typography",
+					"label": "Typography"
+				},
+				{
+					"slug": "frontend",
+					"label": "Frontend"
+				},
+				{
+					"slug": "devops",
+					"label": "DevOps"
 				}
 			]
 		}
@@ -506,11 +526,11 @@
 		"posts": [
 			{
 				"id": "post-1",
-				"slug": "dung-site-nay-tren-cloudflare",
+				"slug": "toi-dinh-dung-site-tinh-cuoi-cung-chay-cms-ssr",
 				"status": "published",
 				"data": {
-					"title": "Dựng site này: Astro 7 tĩnh trên Cloudflare Workers, và bài toán chi phí thật",
-					"excerpt": "Vì sao static asset trên Cloudflare làm cho hạn mức 100.000 request/ngày gần như không liên quan, và chỗ duy nhất còn tốn tiền là tên miền.",
+					"title": "Tôi định dựng site tĩnh. Cuối cùng nó chạy CMS SSR",
+					"excerpt": "Một quyết định bị lật ngược, ba lỗi deploy, và vì sao hoá đơn hạ tầng vẫn bằng không.",
 					"content": [
 						{
 							"_type": "block",
@@ -518,7 +538,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Bài đầu tiên nên là bài rẻ nhất để viết: ghi lại chính cái site bạn đang đọc được dựng bằng gì, và vì sao.",
+									"text": "Kế hoạch ban đầu rất gọn: Astro tĩnh, nội dung là file Markdown trong Git, không CMS. Tôi có đủ lý lẽ cho lựa chọn đó. CMS sinh ra để nhiều người không biết code cùng sản xuất nội dung — tôi viết một mình, thêm admin UI chỉ là thêm bề mặt phải bảo trì.",
 									"marks": [],
 									"_key": "k0"
 								}
@@ -528,11 +548,11 @@
 						},
 						{
 							"_type": "block",
-							"style": "h2",
+							"style": "normal",
 							"children": [
 								{
 									"_type": "span",
-									"text": "Vì sao không dùng CMS",
+									"text": "Site bạn đang đọc chạy EmDash. Một CMS. Server-side rendering. D1, R2, KV.",
 									"marks": [],
 									"_key": "k2"
 								}
@@ -546,7 +566,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Cloudflare ra EmDash hồi tháng 4/2026 — CMS mã nguồn mở, TypeScript, chạy trên Workers + D1 + R2, plugin bị nhốt trong V8 isolate. Ngày 12/8 họ chuyển blog của chính mình sang nó. Đó là tín hiệu nghiêm túc.",
+									"text": "Bài này ghi lại vì sao.",
 									"marks": [],
 									"_key": "k4"
 								}
@@ -556,25 +576,25 @@
 						},
 						{
 							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Thứ làm tôi đổi ý không phải lý lẽ",
+									"marks": [],
+									"_key": "k6"
+								}
+							],
+							"markDefs": [],
+							"_key": "k7"
+						},
+						{
+							"_type": "block",
 							"style": "normal",
 							"children": [
 								{
 									"_type": "span",
-									"text": "Nhưng CMS giải quyết bài toán ",
-									"marks": [],
-									"_key": "k6"
-								},
-								{
-									"_type": "span",
-									"text": "nhiều người không biết code cùng sản xuất nội dung",
-									"marks": [
-										"em"
-									],
-									"_key": "k7"
-								},
-								{
-									"_type": "span",
-									"text": ". Một người viết Markdown rồi commit thì admin UI chỉ là thêm bề mặt cần bảo trì. Và EmDash hiện vẫn là v0.1.0 beta preview — chưa phải chỗ để đặt blog cá nhân xuống rồi quên đi trong hai năm.",
+									"text": "Cloudflare ra EmDash ngày 1/4/2026 — mã nguồn mở, TypeScript, dựng trên Astro, plugin bị nhốt trong V8 isolate. Ngày 12/8 họ chuyển blog của chính mình sang nó.",
 									"marks": [],
 									"_key": "k8"
 								}
@@ -588,7 +608,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Nên: Astro tĩnh, nội dung là file Markdown trong Git.",
+									"text": "Tôi vẫn khuyên chính mình đừng dùng: bản v0.1.0 preview, chưa phải chỗ để đặt blog cá nhân xuống rồi quên đi trong hai năm.",
 									"marks": [],
 									"_key": "k10"
 								}
@@ -598,11 +618,11 @@
 						},
 						{
 							"_type": "block",
-							"style": "h2",
+							"style": "normal",
 							"children": [
 								{
 									"_type": "span",
-									"text": "Vì sao Astro chứ không phải Next.js",
+									"text": "Rồi tôi bấm nút \"Deploy to Cloudflare\" để xem thử. Và ở lại luôn.",
 									"marks": [],
 									"_key": "k12"
 								}
@@ -616,7 +636,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Astro mặc định ship 0 JavaScript. Với một trang chỉ cần HTML, mang RSC và hydration vào là trả giá cho thứ không dùng.",
+									"text": "Lý do trung thực không nằm ở kỹ thuật. Là vì sửa một câu chữ trong admin UI mất mười giây, còn sửa Markdown rồi commit rồi chờ build mất hai phút. Nhân với vài trăm lần sửa vặt, khoảng cách đó lớn hơn mọi lý lẽ về \"bề mặt phải bảo trì\".",
 									"marks": [],
 									"_key": "k14"
 								}
@@ -626,11 +646,11 @@
 						},
 						{
 							"_type": "block",
-							"style": "normal",
+							"style": "h2",
 							"children": [
 								{
 									"_type": "span",
-									"text": "Thứ đáng giá hơn là Content Collections: frontmatter có schema, sai field thì build đỏ chứ không phải trang production render trắng.",
+									"text": "Ba lỗi liên tiếp trước khi nó chạy",
 									"marks": [],
 									"_key": "k16"
 								}
@@ -639,10 +659,18 @@
 							"_key": "k17"
 						},
 						{
-							"_type": "code",
-							"code": "// src/content.config.ts\nimport { defineCollection } from 'astro:content';\nimport { glob } from 'astro/loaders';\nimport { z } from 'astro/zod';\n\nconst blog = defineCollection({\n  loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),\n  schema: z.object({\n    title: z.string(),\n    pubDate: z.coerce.date(),\n    draft: z.boolean().default(false),\n  }),\n});\n\nexport const collections = { blog };",
-							"_key": "k18",
-							"language": "ts"
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Nút deploy không dẫn thẳng tới site chạy được. Nó dẫn tới ba lỗi, mỗi lỗi mất một vòng.",
+									"marks": [],
+									"_key": "k18"
+								}
+							],
+							"markDefs": [],
+							"_key": "k19"
 						},
 						{
 							"_type": "block",
@@ -650,27 +678,21 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Một chỗ dễ vấp: từ Astro 6 trở đi, ",
-									"marks": [],
-									"_key": "k19"
-								},
-								{
-									"_type": "span",
-									"text": "z",
+									"text": "`10195` — Dynamic Workers cần gói trả phí.",
 									"marks": [
-										"code"
+										"strong"
 									],
 									"_key": "k20"
 								},
 								{
 									"_type": "span",
-									"text": " không lấy từ ",
+									"text": " Template bật sẵn binding ",
 									"marks": [],
 									"_key": "k21"
 								},
 								{
 									"_type": "span",
-									"text": "astro:content",
+									"text": "worker_loaders",
 									"marks": [
 										"code"
 									],
@@ -678,13 +700,13 @@
 								},
 								{
 									"_type": "span",
-									"text": " nữa mà từ ",
+									"text": " để chạy plugin trong isolate riêng. Tính năng đó chỉ có trên Workers Paid. Nhưng tôi không cài plugin nào từ marketplace, nên gỡ ba dòng khỏi ",
 									"marks": [],
 									"_key": "k23"
 								},
 								{
 									"_type": "span",
-									"text": "astro/zod",
+									"text": "wrangler.jsonc",
 									"marks": [
 										"code"
 									],
@@ -692,49 +714,49 @@
 								},
 								{
 									"_type": "span",
-									"text": ", và đó là Zod 4. Import cũ vẫn chạy nhưng đã deprecated, sẽ bị bỏ ở Astro 8. Gần như mọi tutorial Astro 5 trên mạng đều sai chỗ này.",
+									"text": " và bỏ ",
 									"marks": [],
 									"_key": "k25"
-								}
-							],
-							"markDefs": [],
-							"_key": "k26"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
+								},
 								{
 									"_type": "span",
-									"text": "Bản đang dùng ở đây là Astro 7.2.9. Astro 7.0 ra ngày 22/6/2026 — nếu bạn tra tài liệu và thấy người ta nói Astro 6 là mới nhất, đó là thông tin của tháng 3.",
+									"text": "sandboxed",
+									"marks": [
+										"code"
+									],
+									"_key": "k26"
+								},
+								{
+									"_type": "span",
+									"text": "/",
 									"marks": [],
 									"_key": "k27"
-								}
-							],
-							"markDefs": [],
-							"_key": "k28"
-						},
-						{
-							"_type": "block",
-							"style": "h2",
-							"children": [
+								},
 								{
 									"_type": "span",
-									"text": "Chỗ mà chi phí biến mất",
+									"text": "sandboxRunner",
+									"marks": [
+										"code"
+									],
+									"_key": "k28"
+								},
+								{
+									"_type": "span",
+									"text": " trong ",
 									"marks": [],
 									"_key": "k29"
-								}
-							],
-							"markDefs": [],
-							"_key": "k30"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
+								},
 								{
 									"_type": "span",
-									"text": "Đây mới là phần đáng nói.",
+									"text": "astro.config.mjs",
+									"marks": [
+										"code"
+									],
+									"_key": "k30"
+								},
+								{
+									"_type": "span",
+									"text": " là xong. Đánh đổi: sau này muốn cài plugin thì phải thêm lại và lên gói trả tiền.",
 									"marks": [],
 									"_key": "k31"
 								}
@@ -748,41 +770,35 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Workers Free cho 100.000 request/ngày và 10ms CPU mỗi lần gọi. Nghe như một cái trần cần để mắt tới. Thực tế thì không, vì ",
-									"marks": [],
+									"text": "`seed_repo override` — nút Retry vô dụng vĩnh viễn.",
+									"marks": [
+										"strong"
+									],
 									"_key": "k33"
 								},
 								{
 									"_type": "span",
-									"text": "request tới static asset là miễn phí và không giới hạn",
-									"marks": [
-										"strong"
-									],
+									"text": " Build đầu tiên do nút deploy tạo ra được build từ ",
+									"marks": [],
 									"_key": "k34"
 								},
 								{
 									"_type": "span",
-									"text": " trên cả Free lẫn Paid, egress không đo. Chỉ request thật sự gọi vào Worker script — tức SSR — mới bị tính.",
-									"marks": [],
+									"text": "repo template",
+									"marks": [
+										"em"
+									],
 									"_key": "k35"
-								}
-							],
-							"markDefs": [],
-							"_key": "k36"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
+								},
 								{
 									"_type": "span",
-									"text": "Site build tĩnh thì mọi request đều là static asset. Không có hạn mức nào để chạm vào. Không phải \"đủ dùng lâu dài\", mà là không liên quan.",
+									"text": ", trước khi repo của tôi tồn tại. Cloudflare không phát lại được build đó vào repo mới. Bấm Retry bao nhiêu lần cũng ra cùng một lỗi. Cách thoát là đừng retry — push một commit bất kỳ để tạo build mới, build đó không mang tham chiếu seed nên retry được từ đó trở đi.",
 									"marks": [],
-									"_key": "k37"
+									"_key": "k36"
 								}
 							],
 							"markDefs": [],
-							"_key": "k38"
+							"_key": "k37"
 						},
 						{
 							"_type": "block",
@@ -790,63 +806,71 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Một hiểu nhầm phổ biến nữa, tôi cũng từng tin: rằng phải lên gói $5/tháng nếu cần Cron Triggers hoặc Durable Objects. Sai cả hai. Cron Triggers có sẵn trên Free (3 cron mỗi Worker). Durable Objects backend SQLite lên Free plan từ tháng 4/2025 và không tính phí storage — chỉ backend key-value mới cần Paid.",
+									"text": "`10014` — KV namespace đâm vào chính nó.",
+									"marks": [
+										"strong"
+									],
+									"_key": "k38"
+								},
+								{
+									"_type": "span",
+									"text": " Adapter ",
 									"marks": [],
 									"_key": "k39"
-								}
-							],
-							"markDefs": [],
-							"_key": "k40"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
+								},
 								{
 									"_type": "span",
-									"text": "Thứ thực sự đẩy bạn lên gói trả tiền là vượt 100k request động/ngày, vượt 10ms CPU, hoặc vượt 10.000 Neurons/ngày của Workers AI.",
+									"text": "@astrojs/cloudflare",
+									"marks": [
+										"code"
+									],
+									"_key": "k40"
+								},
+								{
+									"_type": "span",
+									"text": " tự tiêm binding ",
 									"marks": [],
 									"_key": "k41"
-								}
-							],
-							"markDefs": [],
-							"_key": "k42"
-						},
-						{
-							"_type": "block",
-							"style": "h2",
-							"children": [
+								},
 								{
 									"_type": "span",
-									"text": "Vậy còn lại gì phải trả",
+									"text": "SESSION",
+									"marks": [
+										"code"
+									],
+									"_key": "k42"
+								},
+								{
+									"_type": "span",
+									"text": " mà không kèm id. Wrangler thấy binding chưa có id nên đi ",
 									"marks": [],
 									"_key": "k43"
-								}
-							],
-							"markDefs": [],
-							"_key": "k44"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
+								},
 								{
 									"_type": "span",
-									"text": "Tên miền. Cloudflare Registrar bán at-cost, giá gia hạn bằng giá đăng ký, không có trò năm đầu rẻ rồi tăng vọt.",
+									"text": "tạo mới",
+									"marks": [
+										"em"
+									],
+									"_key": "k44"
+								},
+								{
+									"_type": "span",
+									"text": " namespace theo tên, và đâm vào cái mà lần deploy hỏng trước đã tạo. Nó không có nhánh \"đã tồn tại thì dùng lại\". Xoá namespace đi chỉ mua được một lần deploy xanh — vì Workers Builds không ghi id ngược lại vào repo, lần sau lại tạo mới và lại đâm. Cách dứt điểm là ghim id vào ",
 									"marks": [],
 									"_key": "k45"
-								}
-							],
-							"markDefs": [],
-							"_key": "k46"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
+								},
 								{
 									"_type": "span",
-									"text": "Hết. Không database, không email service, không hosting.",
+									"text": "wrangler.jsonc",
+									"marks": [
+										"code"
+									],
+									"_key": "k46"
+								},
+								{
+									"_type": "span",
+									"text": ".",
 									"marks": [],
 									"_key": "k47"
 								}
@@ -856,11 +880,11 @@
 						},
 						{
 							"_type": "block",
-							"style": "normal",
+							"style": "h2",
 							"children": [
 								{
 									"_type": "span",
-									"text": "Chi phí thật của một cái blog chưa bao giờ nằm ở hoá đơn hạ tầng. Nó nằm ở số giờ ngồi viết. Tối ưu 9 đô một tháng trong khi chưa đăng bài nào là đang giải sai bài toán.",
+									"text": "Cái bẫy đắt nhất: seed không tạo nội dung",
 									"marks": [],
 									"_key": "k49"
 								}
@@ -870,25 +894,25 @@
 						},
 						{
 							"_type": "block",
-							"style": "h2",
-							"children": [
-								{
-									"_type": "span",
-									"text": "Còn newsletter",
-									"marks": [],
-									"_key": "k51"
-								}
-							],
-							"markDefs": [],
-							"_key": "k52"
-						},
-						{
-							"_type": "block",
 							"style": "normal",
 							"children": [
 								{
 									"_type": "span",
-									"text": "Chưa có, và cố tình chưa có.",
+									"text": "EmDash có file ",
+									"marks": [],
+									"_key": "k51"
+								},
+								{
+									"_type": "span",
+									"text": "seed/seed.json",
+									"marks": [
+										"code"
+									],
+									"_key": "k52"
+								},
+								{
+									"_type": "span",
+									"text": " định nghĩa schema và nội dung khởi tạo. Tài liệu nói nó được áp \"on the first request when the database is empty\".",
 									"marks": [],
 									"_key": "k53"
 								}
@@ -902,13 +926,27 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Có một cái bẫy dễ mắc: dựng sẵn ô nhập email khi chưa có endpoint nhận. Form đó nuốt email của người đọc rồi không đi đâu cả — tệ hơn hẳn so với không có form. Nên ở đây tạm thời chỉ có RSS, và ô email sẽ bật lên khi có chỗ để gửi tới thật.",
+									"text": "Tôi commit seed đầy đủ — bảy bài, ba chuyên mục, mười bốn thẻ. Deploy xong, site có đúng menu và chuyên mục, và ",
 									"marks": [],
 									"_key": "k55"
+								},
+								{
+									"_type": "span",
+									"text": "không một bài nào",
+									"marks": [
+										"strong"
+									],
+									"_key": "k56"
+								},
+								{
+									"_type": "span",
+									"text": ".",
+									"marks": [],
+									"_key": "k57"
 								}
 							],
 							"markDefs": [],
-							"_key": "k56"
+							"_key": "k58"
 						},
 						{
 							"_type": "block",
@@ -916,13 +954,319 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Dev vẫn là một trong số ít nhóm còn đọc RSS thật. Với mười bài đầu tiên, thế là đủ.",
+									"text": "Đọc mã nguồn thì rõ. Middleware gọi:",
 									"marks": [],
-									"_key": "k57"
+									"_key": "k59"
 								}
 							],
 							"markDefs": [],
-							"_key": "k58"
+							"_key": "k60"
+						},
+						{
+							"_type": "code",
+							"code": "await applySeed(db, seed, { onConflict: \"skip\" });",
+							"_key": "k61",
+							"language": "js"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Còn ",
+									"marks": [],
+									"_key": "k62"
+								},
+								{
+									"_type": "span",
+									"text": "applySeed",
+									"marks": [
+										"code"
+									],
+									"_key": "k63"
+								},
+								{
+									"_type": "span",
+									"text": " khai báo:",
+									"marks": [],
+									"_key": "k64"
+								}
+							],
+							"markDefs": [],
+							"_key": "k65"
+						},
+						{
+							"_type": "code",
+							"code": "const { includeContent = false, ... } = options;",
+							"_key": "k66",
+							"language": "js"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Không truyền thì mặc định ",
+									"marks": [],
+									"_key": "k67"
+								},
+								{
+									"_type": "span",
+									"text": "false",
+									"marks": [
+										"code"
+									],
+									"_key": "k68"
+								},
+								{
+									"_type": "span",
+									"text": ". Schema, settings, menu, định nghĩa taxonomy được tạo. Nội dung, byline, term thì không. Chỉ endpoint setup wizard mới truyền ",
+									"marks": [],
+									"_key": "k69"
+								},
+								{
+									"_type": "span",
+									"text": "includeContent",
+									"marks": [
+										"code"
+									],
+									"_key": "k70"
+								},
+								{
+									"_type": "span",
+									"text": " từ form.",
+									"marks": [],
+									"_key": "k71"
+								}
+							],
+							"markDefs": [],
+							"_key": "k72"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Nghĩa là: ",
+									"marks": [],
+									"_key": "k73"
+								},
+								{
+									"_type": "span",
+									"text": "phải chạy hết wizard và tick ô import nội dung.",
+									"marks": [
+										"strong"
+									],
+									"_key": "k74"
+								},
+								{
+									"_type": "span",
+									"text": " Bỏ qua bước đó thì ",
+									"marks": [],
+									"_key": "k75"
+								},
+								{
+									"_type": "span",
+									"text": "onConflict: \"skip\"",
+									"marks": [
+										"code"
+									],
+									"_key": "k76"
+								},
+								{
+									"_type": "span",
+									"text": " đảm bảo không có lần hai — phải xoá D1 làm lại từ đầu.",
+									"marks": [],
+									"_key": "k77"
+								}
+							],
+							"markDefs": [],
+							"_key": "k78"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Tiện thể, một điểm bảo mật đáng nói: từ lúc site lên tới lúc bạn hoàn tất wizard, ",
+									"marks": [],
+									"_key": "k79"
+								},
+								{
+									"_type": "span",
+									"text": "ai mở được URL cũng có thể trở thành admin",
+									"marks": [
+										"strong"
+									],
+									"_key": "k80"
+								},
+								{
+									"_type": "span",
+									"text": ". Cookie nonce trong EmDash chỉ chống cướp một phiên setup đang dở, không chống người đến trước. Chạy wizard ngay, tính bằng phút.",
+									"marks": [],
+									"_key": "k81"
+								}
+							],
+							"markDefs": [],
+							"_key": "k82"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Hoá đơn vẫn bằng không",
+									"marks": [],
+									"_key": "k83"
+								}
+							],
+							"markDefs": [],
+							"_key": "k84"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Đây là phần tôi tưởng sẽ phải viết lại, mà hoá ra không.",
+									"marks": [],
+									"_key": "k85"
+								}
+							],
+							"markDefs": [],
+							"_key": "k86"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Workers Free cho 100.000 request/ngày và 10ms CPU mỗi lần gọi. Site tĩnh thì không bao giờ chạm tới — request tới static asset miễn phí và không giới hạn. Site SSR thì ",
+									"marks": [],
+									"_key": "k87"
+								},
+								{
+									"_type": "span",
+									"text": "mọi",
+									"marks": [
+										"strong"
+									],
+									"_key": "k88"
+								},
+								{
+									"_type": "span",
+									"text": " request đều chạy Worker, nên trần đó có thật.",
+									"marks": [],
+									"_key": "k89"
+								}
+							],
+							"markDefs": [],
+							"_key": "k90"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Nhưng với một blog cá nhân, 100k request/ngày là con số xa. Và 10ms CPU cho một lần render trang từ D1 thì chật nhưng đủ. Tôi vẫn đang ở Free.",
+									"marks": [],
+									"_key": "k91"
+								}
+							],
+							"markDefs": [],
+							"_key": "k92"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Một hiểu nhầm tôi từng tin và muốn đính chính: ",
+									"marks": [],
+									"_key": "k93"
+								},
+								{
+									"_type": "span",
+									"text": "không",
+									"marks": [
+										"strong"
+									],
+									"_key": "k94"
+								},
+								{
+									"_type": "span",
+									"text": " phải lên gói $5 để dùng Cron Triggers hay Durable Objects. Cron có trên Free, ba cái mỗi Worker. Durable Objects backend SQLite lên Free từ tháng 4/2025 và không tính phí storage. Thứ thực sự đẩy bạn lên gói trả tiền là vượt request, vượt CPU, hoặc chạm vào tính năng chỉ-trả-phí như Dynamic Workers.",
+									"marks": [],
+									"_key": "k95"
+								}
+							],
+							"markDefs": [],
+							"_key": "k96"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Còn lại phải trả: tên miền. Cloudflare Registrar bán at-cost, giá gia hạn bằng giá đăng ký.",
+									"marks": [],
+									"_key": "k97"
+								}
+							],
+							"markDefs": [],
+							"_key": "k98"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Điều rút ra",
+									"marks": [],
+									"_key": "k99"
+								}
+							],
+							"markDefs": [],
+							"_key": "k100"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Tôi vẫn nghĩ lý lẽ chọn site tĩnh là đúng. Nó chỉ không thắng nổi mười giây so với hai phút, lặp lại vài trăm lần.",
+									"marks": [],
+									"_key": "k101"
+								}
+							],
+							"markDefs": [],
+							"_key": "k102"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Và cái giá của việc đổi ý không phải là kiến trúc — kiến trúc thì đổi trong một buổi. Cái giá là bốn lỗi ở trên, mỗi lỗi đều không có trong tài liệu, và mỗi lỗi đều phải đọc mã nguồn mới ra.",
+									"marks": [],
+									"_key": "k103"
+								}
+							],
+							"markDefs": [],
+							"_key": "k104"
 						}
 					]
 				},
@@ -937,12 +1281,2287 @@
 					],
 					"tag": [
 						"cloudflare",
-						"astro"
+						"astro",
+						"emdash"
 					]
 				}
 			},
 			{
 				"id": "post-2",
+				"slug": "doi-theme-chi-doi-moi-scrollbar",
+				"status": "published",
+				"data": {
+					"title": "Đổi theme chỉ đổi mỗi scrollbar",
+					"excerpt": "Nút sáng/tối bấm không ăn, nhưng scrollbar vẫn đổi màu. Chính chi tiết thừa đó chỉ ra thủ phạm — và nó nằm sau khâu build.",
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Nút chuyển sáng/tối ở footer không hoạt động. Bấm không có gì xảy ra.",
+									"marks": [],
+									"_key": "k105"
+								}
+							],
+							"markDefs": [],
+							"_key": "k106"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Trừ một thứ: ",
+									"marks": [],
+									"_key": "k107"
+								},
+								{
+									"_type": "span",
+									"text": "scrollbar đổi màu.",
+									"marks": [
+										"strong"
+									],
+									"_key": "k108"
+								}
+							],
+							"markDefs": [],
+							"_key": "k109"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Chi tiết thừa đó là thứ phá được ca này. Nhưng phải mất ba lần đoán sai tôi mới chịu nghe nó.",
+									"marks": [],
+									"_key": "k110"
+								}
+							],
+							"markDefs": [],
+							"_key": "k111"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Ba lần đoán sai",
+									"marks": [],
+									"_key": "k112"
+								}
+							],
+							"markDefs": [],
+							"_key": "k113"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Lần một: biến chưa định nghĩa.",
+									"marks": [
+										"strong"
+									],
+									"_key": "k114"
+								},
+								{
+									"_type": "span",
+									"text": " Script đọc ",
+									"marks": [],
+									"_key": "k115"
+								},
+								{
+									"_type": "span",
+									"text": "document.cookie.match(THEME_REGEX)",
+									"marks": [
+										"code"
+									],
+									"_key": "k116"
+								},
+								{
+									"_type": "span",
+									"text": ". Tôi nghĩ ",
+									"marks": [],
+									"_key": "k117"
+								},
+								{
+									"_type": "span",
+									"text": "THEME_REGEX",
+									"marks": [
+										"code"
+									],
+									"_key": "k118"
+								},
+								{
+									"_type": "span",
+									"text": " khai ở scope khác nên script ném ",
+									"marks": [],
+									"_key": "k119"
+								},
+								{
+									"_type": "span",
+									"text": "ReferenceError",
+									"marks": [
+										"code"
+									],
+									"_key": "k120"
+								},
+								{
+									"_type": "span",
+									"text": " trước dòng ",
+									"marks": [],
+									"_key": "k121"
+								},
+								{
+									"_type": "span",
+									"text": "addEventListener",
+									"marks": [
+										"code"
+									],
+									"_key": "k122"
+								},
+								{
+									"_type": "span",
+									"text": ". Grep xong: nó nằm ngay dòng trên. Sai.",
+									"marks": [],
+									"_key": "k123"
+								}
+							],
+							"markDefs": [],
+							"_key": "k124"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Lần hai: cú pháp TypeScript.",
+									"marks": [
+										"strong"
+									],
+									"_key": "k125"
+								},
+								{
+									"_type": "span",
+									"text": " Script dùng ",
+									"marks": [],
+									"_key": "k126"
+								},
+								{
+									"_type": "span",
+									"text": "querySelectorAll<HTMLButtonElement>",
+									"marks": [
+										"code"
+									],
+									"_key": "k127"
+								},
+								{
+									"_type": "span",
+									"text": " và ",
+									"marks": [],
+									"_key": "k128"
+								},
+								{
+									"_type": "span",
+									"text": "name: string",
+									"marks": [
+										"code"
+									],
+									"_key": "k129"
+								},
+								{
+									"_type": "span",
+									"text": " trong một thẻ ",
+									"marks": [],
+									"_key": "k130"
+								},
+								{
+									"_type": "span",
+									"text": "<script>",
+									"marks": [
+										"code"
+									],
+									"_key": "k131"
+								},
+								{
+									"_type": "span",
+									"text": " không có ",
+									"marks": [],
+									"_key": "k132"
+								},
+								{
+									"_type": "span",
+									"text": "import",
+									"marks": [
+										"code"
+									],
+									"_key": "k133"
+								},
+								{
+									"_type": "span",
+									"text": ". Tôi đoán bundler xử lý nó như JS thuần rồi chết lặng. Gỡ sạch annotation, build lại: không đổi gì. Sai.",
+									"marks": [],
+									"_key": "k134"
+								}
+							],
+							"markDefs": [],
+							"_key": "k135"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Lần ba: CSP.",
+									"marks": [
+										"strong"
+									],
+									"_key": "k136"
+								},
+								{
+									"_type": "span",
+									"text": " EmDash lấy bảo mật làm điểm bán hàng. Tôi đoán header Content-Security-Policy chặn inline script. Đọc middleware: CSP chỉ áp cho route ",
+									"marks": [],
+									"_key": "k137"
+								},
+								{
+									"_type": "span",
+									"text": "/_emdash",
+									"marks": [
+										"code"
+									],
+									"_key": "k138"
+								},
+								{
+									"_type": "span",
+									"text": ", không áp trang công khai. Sai.",
+									"marks": [],
+									"_key": "k139"
+								}
+							],
+							"markDefs": [],
+							"_key": "k140"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Ba lần đều sai vì cùng một lý do: ",
+									"marks": [],
+									"_key": "k141"
+								},
+								{
+									"_type": "span",
+									"text": "tôi đọc mã nguồn, còn bug nằm ở output sau build.",
+									"marks": [
+										"strong"
+									],
+									"_key": "k142"
+								}
+							],
+							"markDefs": [],
+							"_key": "k143"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Nghe cái scrollbar",
+									"marks": [],
+									"_key": "k144"
+								}
+							],
+							"markDefs": [],
+							"_key": "k145"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Scrollbar đổi màu nghĩa là gì?",
+									"marks": [],
+									"_key": "k146"
+								}
+							],
+							"markDefs": [],
+							"_key": "k147"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Nó nghĩa là ",
+									"marks": [],
+									"_key": "k148"
+								},
+								{
+									"_type": "span",
+									"text": "color-scheme",
+									"marks": [
+										"code"
+									],
+									"_key": "k149"
+								},
+								{
+									"_type": "span",
+									"text": " trên ",
+									"marks": [],
+									"_key": "k150"
+								},
+								{
+									"_type": "span",
+									"text": "<html>",
+									"marks": [
+										"code"
+									],
+									"_key": "k151"
+								},
+								{
+									"_type": "span",
+									"text": " ",
+									"marks": [],
+									"_key": "k152"
+								},
+								{
+									"_type": "span",
+									"text": "đang được áp đúng",
+									"marks": [
+										"strong"
+									],
+									"_key": "k153"
+								},
+								{
+									"_type": "span",
+									"text": ". Đó chính xác là thứ ",
+									"marks": [],
+									"_key": "k154"
+								},
+								{
+									"_type": "span",
+									"text": "color-scheme",
+									"marks": [
+										"code"
+									],
+									"_key": "k155"
+								},
+								{
+									"_type": "span",
+									"text": " điều khiển ở tầng user agent — scrollbar, form control, màu nền mặc định.",
+									"marks": [],
+									"_key": "k156"
+								}
+							],
+							"markDefs": [],
+							"_key": "k157"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Suy ra ngay ba điều: JavaScript có chạy. Class ",
+									"marks": [],
+									"_key": "k158"
+								},
+								{
+									"_type": "span",
+									"text": "dark",
+									"marks": [
+										"code"
+									],
+									"_key": "k159"
+								},
+								{
+									"_type": "span",
+									"text": " có được gắn. Quy tắc ",
+									"marks": [],
+									"_key": "k160"
+								},
+								{
+									"_type": "span",
+									"text": ":root.dark { color-scheme: dark }",
+									"marks": [
+										"code"
+									],
+									"_key": "k161"
+								},
+								{
+									"_type": "span",
+									"text": " có ăn.",
+									"marks": [],
+									"_key": "k162"
+								}
+							],
+							"markDefs": [],
+							"_key": "k163"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Vậy chỉ còn một khả năng: ",
+									"marks": [],
+									"_key": "k164"
+								},
+								{
+									"_type": "span",
+									"text": "màu đang được sơn từ nguồn không nghe `color-scheme`.",
+									"marks": [
+										"strong"
+									],
+									"_key": "k165"
+								}
+							],
+							"markDefs": [],
+							"_key": "k166"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Site này khai màu bằng ",
+									"marks": [],
+									"_key": "k167"
+								},
+								{
+									"_type": "span",
+									"text": "light-dark()",
+									"marks": [
+										"code"
+									],
+									"_key": "k168"
+								},
+								{
+									"_type": "span",
+									"text": ":",
+									"marks": [],
+									"_key": "k169"
+								}
+							],
+							"markDefs": [],
+							"_key": "k170"
+						},
+						{
+							"_type": "code",
+							"code": ":root {\n  color-scheme: light dark;\n  --color-bg: light-dark(#faf9f5, #14140f);\n}",
+							"_key": "k171",
+							"language": "css"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "light-dark()",
+									"marks": [
+										"code"
+									],
+									"_key": "k172"
+								},
+								{
+									"_type": "span",
+									"text": " phải đi theo ",
+									"marks": [],
+									"_key": "k173"
+								},
+								{
+									"_type": "span",
+									"text": "color-scheme",
+									"marks": [
+										"code"
+									],
+									"_key": "k174"
+								},
+								{
+									"_type": "span",
+									"text": ". Nếu nó không đi, thứ đang chạy trong trình duyệt không còn là ",
+									"marks": [],
+									"_key": "k175"
+								},
+								{
+									"_type": "span",
+									"text": "light-dark()",
+									"marks": [
+										"code"
+									],
+									"_key": "k176"
+								},
+								{
+									"_type": "span",
+									"text": " nữa.",
+									"marks": [],
+									"_key": "k177"
+								}
+							],
+							"markDefs": [],
+							"_key": "k178"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Mở CSS đã build ra xem.",
+									"marks": [],
+									"_key": "k179"
+								}
+							],
+							"markDefs": [],
+							"_key": "k180"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Thủ phạm",
+									"marks": [],
+									"_key": "k181"
+								}
+							],
+							"markDefs": [],
+							"_key": "k182"
+						},
+						{
+							"_type": "code",
+							"code": "--color-bg: var(--lightningcss-light,#faf9f5) var(--lightningcss-dark,#14140f)",
+							"_key": "k183",
+							"language": "css"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Lightning CSS — bộ xử lý CSS mà Vite dùng — đã ",
+									"marks": [],
+									"_key": "k184"
+								},
+								{
+									"_type": "span",
+									"text": "hạ cấp `light-dark()` thành polyfill hai biến switch",
+									"marks": [
+										"strong"
+									],
+									"_key": "k185"
+								},
+								{
+									"_type": "span",
+									"text": ". Cơ chế rất khéo: một biến giữ giá trị ",
+									"marks": [],
+									"_key": "k186"
+								},
+								{
+									"_type": "span",
+									"text": "initial",
+									"marks": [
+										"code"
+									],
+									"_key": "k187"
+								},
+								{
+									"_type": "span",
+									"text": ", biến kia giữ chuỗi rỗng, và chỉ một trong hai \"thắng\" khi thay thế.",
+									"marks": [],
+									"_key": "k188"
+								}
+							],
+							"markDefs": [],
+							"_key": "k189"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Vấn đề nằm ở chỗ nhánh tối được bật ở đâu. Trong toàn bộ file, đúng một nơi:",
+									"marks": [],
+									"_key": "k190"
+								}
+							],
+							"markDefs": [],
+							"_key": "k191"
+						},
+						{
+							"_type": "code",
+							"code": "@media (prefers-color-scheme:dark){\n  :root{--lightningcss-light: ;--lightningcss-dark:initial}\n}",
+							"_key": "k192",
+							"language": "css"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "`prefers-color-scheme`.",
+									"marks": [
+										"strong"
+									],
+									"_key": "k193"
+								},
+								{
+									"_type": "span",
+									"text": " Cài đặt hệ điều hành.",
+									"marks": [],
+									"_key": "k194"
+								}
+							],
+							"markDefs": [],
+							"_key": "k195"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Và CSS không có cách nào để truy vấn ",
+									"marks": [],
+									"_key": "k196"
+								},
+								{
+									"_type": "span",
+									"text": "color-scheme",
+									"marks": [
+										"code"
+									],
+									"_key": "k197"
+								},
+								{
+									"_type": "span",
+									"text": ". Không có ",
+									"marks": [],
+									"_key": "k198"
+								},
+								{
+									"_type": "span",
+									"text": "@media (color-scheme: dark)",
+									"marks": [
+										"code"
+									],
+									"_key": "k199"
+								},
+								{
+									"_type": "span",
+									"text": ". Nên khi hạ cấp, Lightning CSS buộc phải neo vào media query của hệ điều hành — thứ duy nhất nó có.",
+									"marks": [],
+									"_key": "k200"
+								}
+							],
+							"markDefs": [],
+							"_key": "k201"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Kết quả: nút bấm đổi ",
+									"marks": [],
+									"_key": "k202"
+								},
+								{
+									"_type": "span",
+									"text": "color-scheme",
+									"marks": [
+										"code"
+									],
+									"_key": "k203"
+								},
+								{
+									"_type": "span",
+									"text": ", trình duyệt vẽ lại scrollbar, và ",
+									"marks": [],
+									"_key": "k204"
+								},
+								{
+									"_type": "span",
+									"text": "149 token màu đứng yên",
+									"marks": [
+										"strong"
+									],
+									"_key": "k205"
+								},
+								{
+									"_type": "span",
+									"text": " ở nhánh sáng.",
+									"marks": [],
+									"_key": "k206"
+								}
+							],
+							"markDefs": [],
+							"_key": "k207"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Triệu chứng khớp hoàn hảo. Chỉ scrollbar đổi.",
+									"marks": [],
+									"_key": "k208"
+								}
+							],
+							"markDefs": [],
+							"_key": "k209"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Sửa",
+									"marks": [],
+									"_key": "k210"
+								}
+							],
+							"markDefs": [],
+							"_key": "k211"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Bảo Lightning CSS đừng hạ cấp:",
+									"marks": [],
+									"_key": "k212"
+								}
+							],
+							"markDefs": [],
+							"_key": "k213"
+						},
+						{
+							"_type": "code",
+							"code": "// astro.config.mjs\nvite: {\n  build: { cssTarget: \"esnext\" },\n}",
+							"_key": "k214",
+							"language": "js"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Đo trên CSS đã build:",
+									"marks": [],
+									"_key": "k215"
+								}
+							],
+							"markDefs": [],
+							"_key": "k216"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "var(--lightningcss-light",
+									"marks": [
+										"code"
+									],
+									"_key": "k217"
+								},
+								{
+									"_type": "span",
+									"text": " — trước: ",
+									"marks": [],
+									"_key": "k218"
+								},
+								{
+									"_type": "span",
+									"text": "149",
+									"marks": [
+										"strong"
+									],
+									"_key": "k219"
+								},
+								{
+									"_type": "span",
+									"text": ", sau: ",
+									"marks": [],
+									"_key": "k220"
+								},
+								{
+									"_type": "span",
+									"text": "0",
+									"marks": [
+										"strong"
+									],
+									"_key": "k221"
+								}
+							],
+							"markDefs": [],
+							"_key": "k222",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "light-dark()",
+									"marks": [
+										"code"
+									],
+									"_key": "k223"
+								},
+								{
+									"_type": "span",
+									"text": " gốc — trước: ",
+									"marks": [],
+									"_key": "k224"
+								},
+								{
+									"_type": "span",
+									"text": "3",
+									"marks": [
+										"strong"
+									],
+									"_key": "k225"
+								},
+								{
+									"_type": "span",
+									"text": ", sau: ",
+									"marks": [],
+									"_key": "k226"
+								},
+								{
+									"_type": "span",
+									"text": "152",
+									"marks": [
+										"strong"
+									],
+									"_key": "k227"
+								}
+							],
+							"markDefs": [],
+							"_key": "k228",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "@media prefers-color-scheme",
+									"marks": [
+										"code"
+									],
+									"_key": "k229"
+								},
+								{
+									"_type": "span",
+									"text": " — trước: ",
+									"marks": [],
+									"_key": "k230"
+								},
+								{
+									"_type": "span",
+									"text": "1",
+									"marks": [
+										"strong"
+									],
+									"_key": "k231"
+								},
+								{
+									"_type": "span",
+									"text": ", sau: ",
+									"marks": [],
+									"_key": "k232"
+								},
+								{
+									"_type": "span",
+									"text": "0",
+									"marks": [
+										"strong"
+									],
+									"_key": "k233"
+								}
+							],
+							"markDefs": [],
+							"_key": "k234",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Tôi có thử ",
+									"marks": [],
+									"_key": "k235"
+								},
+								{
+									"_type": "span",
+									"text": "vite.css.lightningcss.targets",
+									"marks": [
+										"code"
+									],
+									"_key": "k236"
+								},
+								{
+									"_type": "span",
+									"text": " trước. Không ăn — dự án chạy rolldown-vite, và Astro chỉ đặt ",
+									"marks": [],
+									"_key": "k237"
+								},
+								{
+									"_type": "span",
+									"text": "cssMinify",
+									"marks": [
+										"code"
+									],
+									"_key": "k238"
+								},
+								{
+									"_type": "span",
+									"text": "; targets đến từ ",
+									"marks": [],
+									"_key": "k239"
+								},
+								{
+									"_type": "span",
+									"text": "build.cssTarget",
+									"marks": [
+										"code"
+									],
+									"_key": "k240"
+								},
+								{
+									"_type": "span",
+									"text": ".",
+									"marks": [],
+									"_key": "k241"
+								}
+							],
+							"markDefs": [],
+							"_key": "k242"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Đặt ",
+									"marks": [],
+									"_key": "k243"
+								},
+								{
+									"_type": "span",
+									"text": "esnext",
+									"marks": [
+										"code"
+									],
+									"_key": "k244"
+								},
+								{
+									"_type": "span",
+									"text": " là bỏ hạ cấp CSS hoàn toàn. Chấp nhận được ở đây vì codebase vốn đã dùng ",
+									"marks": [],
+									"_key": "k245"
+								},
+								{
+									"_type": "span",
+									"text": "light-dark()",
+									"marks": [
+										"code"
+									],
+									"_key": "k246"
+								},
+								{
+									"_type": "span",
+									"text": ", ",
+									"marks": [],
+									"_key": "k247"
+								},
+								{
+									"_type": "span",
+									"text": "@layer",
+									"marks": [
+										"code"
+									],
+									"_key": "k248"
+								},
+								{
+									"_type": "span",
+									"text": " và ",
+									"marks": [],
+									"_key": "k249"
+								},
+								{
+									"_type": "span",
+									"text": "color-mix()",
+									"marks": [
+										"code"
+									],
+									"_key": "k250"
+								},
+								{
+									"_type": "span",
+									"text": " — và vẫn còn khối ",
+									"marks": [],
+									"_key": "k251"
+								},
+								{
+									"_type": "span",
+									"text": "@supports not (color: light-dark(...))",
+									"marks": [
+										"code"
+									],
+									"_key": "k252"
+								},
+								{
+									"_type": "span",
+									"text": " lo cho trình duyệt cũ.",
+									"marks": [],
+									"_key": "k253"
+								}
+							],
+							"markDefs": [],
+							"_key": "k254"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Điều rút ra",
+									"marks": [],
+									"_key": "k255"
+								}
+							],
+							"markDefs": [],
+							"_key": "k256"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Bất kỳ dự án Astro hay Vite nào vừa dùng ",
+									"marks": [],
+									"_key": "k257"
+								},
+								{
+									"_type": "span",
+									"text": "light-dark()",
+									"marks": [
+										"code"
+									],
+									"_key": "k258"
+								},
+								{
+									"_type": "span",
+									"text": " vừa cho người dùng tự chọn theme đều dính lỗi này. Nó không phải bug của EmDash, không phải bug của Astro. Nó là hệ quả tất yếu: ",
+									"marks": [],
+									"_key": "k259"
+								},
+								{
+									"_type": "span",
+									"text": "một polyfill CSS không thể mô phỏng thứ mà CSS không truy vấn được.",
+									"marks": [
+										"strong"
+									],
+									"_key": "k260"
+								}
+							],
+							"markDefs": [],
+							"_key": "k261"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Và bài học về cách debug thì đáng hơn bản sửa. Khi có một triệu chứng lẻ loi trông như nhiễu — \"à, mỗi cái scrollbar thôi\" — thường chính nó là dữ kiện duy nhất phân biệt được các giả thuyết. Ba lần đoán của tôi đều giải thích được \"nút không ăn\". Không lần nào giải thích được \"nhưng scrollbar vẫn đổi\".",
+									"marks": [],
+									"_key": "k262"
+								}
+							],
+							"markDefs": [],
+							"_key": "k263"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Nếu một giả thuyết không giải thích được toàn bộ hiện tượng, kể cả phần kỳ quặc, thì nó chưa phải câu trả lời.",
+									"marks": [],
+									"_key": "k264"
+								}
+							],
+							"markDefs": [],
+							"_key": "k265"
+						}
+					]
+				},
+				"bylines": [
+					{
+						"byline": "byline-dang"
+					}
+				],
+				"taxonomies": {
+					"category": [
+						"ghi-chep"
+					],
+					"tag": [
+						"css",
+						"astro",
+						"cloudflare"
+					]
+				}
+			},
+			{
+				"id": "post-3",
+				"slug": "font-khong-hong-subsets-moi-hong",
+				"status": "draft",
+				"data": {
+					"title": "Font của bạn không hỏng. subsets mới hỏng",
+					"excerpt": "Vì sao chữ tiếng Việt trên site Astro của bạn không dùng webfont bạn đã chọn, và một dòng config sửa được.",
+					"content": [
+						{
+							"_type": "block",
+							"style": "blockquote",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Dàn ý. Xoá ",
+									"marks": [],
+									"_key": "k266"
+								},
+								{
+									"_type": "span",
+									"text": "draft: true",
+									"marks": [
+										"code"
+									],
+									"_key": "k267"
+								},
+								{
+									"_type": "span",
+									"text": " khi viết xong.",
+									"marks": [],
+									"_key": "k268"
+								}
+							],
+							"markDefs": [],
+							"_key": "k269"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Triệu chứng",
+									"marks": [],
+									"_key": "k270"
+								}
+							],
+							"markDefs": [],
+							"_key": "k271"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Chọn font đẹp, khai báo đúng, deploy xong. Chữ Latin nét chuẩn, chữ có dấu lệch nhịp — nét khác, chiều cao khác. Trông như hai font ghép lại. Vì đúng là hai font thật.",
+									"marks": [],
+									"_key": "k272"
+								}
+							],
+							"markDefs": [],
+							"_key": "k273"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Nguyên nhân",
+									"marks": [],
+									"_key": "k274"
+								}
+							],
+							"markDefs": [],
+							"_key": "k275"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Astro Fonts API: ",
+									"marks": [],
+									"_key": "k276"
+								},
+								{
+									"_type": "span",
+									"text": "subsets",
+									"marks": [
+										"code"
+									],
+									"_key": "k277"
+								},
+								{
+									"_type": "span",
+									"text": " mặc định là ",
+									"marks": [],
+									"_key": "k278"
+								},
+								{
+									"_type": "span",
+									"text": "[\"latin\"]",
+									"marks": [
+										"code"
+									],
+									"_key": "k279"
+								},
+								{
+									"_type": "span",
+									"text": ".",
+									"marks": [],
+									"_key": "k280"
+								}
+							],
+							"markDefs": [],
+							"_key": "k281"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Dải ",
+									"marks": [],
+									"_key": "k282"
+								},
+								{
+									"_type": "span",
+									"text": "latin",
+									"marks": [
+										"code"
+									],
+									"_key": "k283"
+								},
+								{
+									"_type": "span",
+									"text": " không chứa ế ộ ừ đ",
+									"marks": [],
+									"_key": "k284"
+								}
+							],
+							"markDefs": [],
+							"_key": "k285",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Trình duyệt không tìm thấy glyph trong webfont → rơi về font hệ điều hành cho ",
+									"marks": [],
+									"_key": "k286"
+								},
+								{
+									"_type": "span",
+									"text": "riêng",
+									"marks": [
+										"strong"
+									],
+									"_key": "k287"
+								},
+								{
+									"_type": "span",
+									"text": " những ký tự đó",
+									"marks": [],
+									"_key": "k288"
+								}
+							],
+							"markDefs": [],
+							"_key": "k289",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Không có cảnh báo, không có lỗi build",
+									"marks": [],
+									"_key": "k290"
+								}
+							],
+							"markDefs": [],
+							"_key": "k291",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Sửa",
+									"marks": [],
+									"_key": "k292"
+								}
+							],
+							"markDefs": [],
+							"_key": "k293"
+						},
+						{
+							"_type": "code",
+							"code": "subsets: [\"latin\", \"latin-ext\", \"vietnamese\"]",
+							"_key": "k294",
+							"language": "js"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Vì sao cần cả ",
+									"marks": [],
+									"_key": "k295"
+								},
+								{
+									"_type": "span",
+									"text": "latin-ext",
+									"marks": [
+										"code"
+									],
+									"_key": "k296"
+								},
+								{
+									"_type": "span",
+									"text": " (chữ đ)",
+									"marks": [],
+									"_key": "k297"
+								}
+							],
+							"markDefs": [],
+							"_key": "k298",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Cái giá: thêm bao nhiêu KB",
+									"marks": [],
+									"_key": "k299"
+								}
+							],
+							"markDefs": [],
+							"_key": "k300",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Kiểm chứng thế nào — DevTools tab Network, lọc ",
+									"marks": [],
+									"_key": "k301"
+								},
+								{
+									"_type": "span",
+									"text": "font",
+									"marks": [
+										"code"
+									],
+									"_key": "k302"
+								}
+							],
+							"markDefs": [],
+							"_key": "k303",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Chọn font phủ đủ tiếng Việt",
+									"marks": [],
+									"_key": "k304"
+								}
+							],
+							"markDefs": [],
+							"_key": "k305"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Họ Noto sinh ra để phủ Unicode, an toàn nhất",
+									"marks": [],
+									"_key": "k306"
+								}
+							],
+							"markDefs": [],
+							"_key": "k307",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Be Vietnam Pro thiết kế riêng cho tiếng Việt",
+									"marks": [],
+									"_key": "k308"
+								}
+							],
+							"markDefs": [],
+							"_key": "k309",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Cách kiểm một font trên Google Fonts có dải ",
+									"marks": [],
+									"_key": "k310"
+								},
+								{
+									"_type": "span",
+									"text": "vietnamese",
+									"marks": [
+										"code"
+									],
+									"_key": "k311"
+								},
+								{
+									"_type": "span",
+									"text": " không",
+									"marks": [],
+									"_key": "k312"
+								}
+							],
+							"markDefs": [],
+							"_key": "k313",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Bẫy: font đẹp trên bản mẫu tiếng Anh, vỡ khi gặp dấu chồng",
+									"marks": [],
+									"_key": "k314"
+								}
+							],
+							"markDefs": [],
+							"_key": "k315",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Chữ hoa tiếng Việt",
+									"marks": [],
+									"_key": "k316"
+								}
+							],
+							"markDefs": [],
+							"_key": "k317"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "text-transform: uppercase",
+									"marks": [
+										"code"
+									],
+									"_key": "k318"
+								},
+								{
+									"_type": "span",
+									"text": " với Ế Ộ Ừ cần ",
+									"marks": [],
+									"_key": "k319"
+								},
+								{
+									"_type": "span",
+									"text": "line-height",
+									"marks": [
+										"code"
+									],
+									"_key": "k320"
+								},
+								{
+									"_type": "span",
+									"text": " bao nhiêu để không cắt ngọn",
+									"marks": [],
+									"_key": "k321"
+								}
+							],
+							"markDefs": [],
+							"_key": "k322",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "letter-spacing",
+									"marks": [
+										"code"
+									],
+									"_key": "k323"
+								},
+								{
+									"_type": "span",
+									"text": " bao nhiêu là vừa",
+									"marks": [],
+									"_key": "k324"
+								}
+							],
+							"markDefs": [],
+							"_key": "k325",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Cách đo: so ",
+									"marks": [],
+									"_key": "k326"
+								},
+								{
+									"_type": "span",
+									"text": "scrollHeight",
+									"marks": [
+										"code"
+									],
+									"_key": "k327"
+								},
+								{
+									"_type": "span",
+									"text": " với ",
+									"marks": [],
+									"_key": "k328"
+								},
+								{
+									"_type": "span",
+									"text": "clientHeight",
+									"marks": [
+										"code"
+									],
+									"_key": "k329"
+								}
+							],
+							"markDefs": [],
+							"_key": "k330",
+							"listItem": "bullet",
+							"level": 1
+						}
+					]
+				},
+				"bylines": [
+					{
+						"byline": "byline-dang"
+					}
+				],
+				"taxonomies": {
+					"category": [
+						"ghi-chep"
+					],
+					"tag": [
+						"astro",
+						"typography",
+						"frontend"
+					]
+				}
+			},
+			{
+				"id": "post-4",
+				"slug": "deploy-emdash-len-cloudflare-ba-ma-loi",
+				"status": "draft",
+				"data": {
+					"title": "Deploy EmDash lên Cloudflare: ba mã lỗi và cách thoát",
+					"excerpt": "10195, seed_repo override, 10014 — ba lỗi liên tiếp giữa nút \"Deploy to Cloudflare\" và một site chạy được.",
+					"content": [
+						{
+							"_type": "block",
+							"style": "blockquote",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Dàn ý. Xoá ",
+									"marks": [],
+									"_key": "k331"
+								},
+								{
+									"_type": "span",
+									"text": "draft: true",
+									"marks": [
+										"code"
+									],
+									"_key": "k332"
+								},
+								{
+									"_type": "span",
+									"text": " khi viết xong.",
+									"marks": [],
+									"_key": "k333"
+								}
+							],
+							"markDefs": [],
+							"_key": "k334"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Bối cảnh",
+									"marks": [],
+									"_key": "k335"
+								}
+							],
+							"markDefs": [],
+							"_key": "k336"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Nút \"Deploy to Cloudflare\" tạo repo, provision D1 + R2 + Worker. Rồi build đỏ.",
+									"marks": [],
+									"_key": "k337"
+								}
+							],
+							"markDefs": [],
+							"_key": "k338"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "10195",
+									"marks": [
+										"code"
+									],
+									"_key": "k339"
+								},
+								{
+									"_type": "span",
+									"text": " — Dynamic Workers cần gói trả phí",
+									"marks": [],
+									"_key": "k340"
+								}
+							],
+							"markDefs": [],
+							"_key": "k341"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Binding ",
+									"marks": [],
+									"_key": "k342"
+								},
+								{
+									"_type": "span",
+									"text": "worker_loaders",
+									"marks": [
+										"code"
+									],
+									"_key": "k343"
+								},
+								{
+									"_type": "span",
+									"text": " template bật sẵn để sandbox plugin",
+									"marks": [],
+									"_key": "k344"
+								}
+							],
+							"markDefs": [],
+							"_key": "k345",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Gỡ được nếu không cài plugin marketplace: bỏ 3 dòng ",
+									"marks": [],
+									"_key": "k346"
+								},
+								{
+									"_type": "span",
+									"text": "wrangler.jsonc",
+									"marks": [
+										"code"
+									],
+									"_key": "k347"
+								},
+								{
+									"_type": "span",
+									"text": " + ",
+									"marks": [],
+									"_key": "k348"
+								},
+								{
+									"_type": "span",
+									"text": "sandboxed",
+									"marks": [
+										"code"
+									],
+									"_key": "k349"
+								},
+								{
+									"_type": "span",
+									"text": "/",
+									"marks": [],
+									"_key": "k350"
+								},
+								{
+									"_type": "span",
+									"text": "sandboxRunner",
+									"marks": [
+										"code"
+									],
+									"_key": "k351"
+								},
+								{
+									"_type": "span",
+									"text": " trong ",
+									"marks": [],
+									"_key": "k352"
+								},
+								{
+									"_type": "span",
+									"text": "astro.config.mjs",
+									"marks": [
+										"code"
+									],
+									"_key": "k353"
+								}
+							],
+							"markDefs": [],
+							"_key": "k354",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Kiểm chứng: bundle worker không còn tham chiếu ",
+									"marks": [],
+									"_key": "k355"
+								},
+								{
+									"_type": "span",
+									"text": "LOADER",
+									"marks": [
+										"code"
+									],
+									"_key": "k356"
+								}
+							],
+							"markDefs": [],
+							"_key": "k357",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Đánh đổi: mất khả năng cài plugin runtime",
+									"marks": [],
+									"_key": "k358"
+								}
+							],
+							"markDefs": [],
+							"_key": "k359",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "seed_repo override",
+									"marks": [
+										"code"
+									],
+									"_key": "k360"
+								},
+								{
+									"_type": "span",
+									"text": " — Retry không bao giờ chạy",
+									"marks": [],
+									"_key": "k361"
+								}
+							],
+							"markDefs": [],
+							"_key": "k362"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Build đầu build từ repo template, trước khi repo bạn tồn tại",
+									"marks": [],
+									"_key": "k363"
+								}
+							],
+							"markDefs": [],
+							"_key": "k364",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Cloudflare không phát lại được vào repo mới",
+									"marks": [],
+									"_key": "k365"
+								}
+							],
+							"markDefs": [],
+							"_key": "k366",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Thoát: push commit bất kỳ để tạo build mới",
+									"marks": [],
+									"_key": "k367"
+								}
+							],
+							"markDefs": [],
+							"_key": "k368",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "10014",
+									"marks": [
+										"code"
+									],
+									"_key": "k369"
+								},
+								{
+									"_type": "span",
+									"text": " — KV namespace đâm vào chính nó",
+									"marks": [],
+									"_key": "k370"
+								}
+							],
+							"markDefs": [],
+							"_key": "k371"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "@astrojs/cloudflare",
+									"marks": [
+										"code"
+									],
+									"_key": "k372"
+								},
+								{
+									"_type": "span",
+									"text": " tiêm binding ",
+									"marks": [],
+									"_key": "k373"
+								},
+								{
+									"_type": "span",
+									"text": "SESSION",
+									"marks": [
+										"code"
+									],
+									"_key": "k374"
+								},
+								{
+									"_type": "span",
+									"text": " không kèm id",
+									"marks": [],
+									"_key": "k375"
+								}
+							],
+							"markDefs": [],
+							"_key": "k376",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Wrangler chỉ có nhánh \"tạo mới\", không có nhánh \"dùng lại\"",
+									"marks": [],
+									"_key": "k377"
+								}
+							],
+							"markDefs": [],
+							"_key": "k378",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Vì sao xoá namespace chỉ mua được một lần deploy xanh",
+									"marks": [],
+									"_key": "k379"
+								}
+							],
+							"markDefs": [],
+							"_key": "k380",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Sửa dứt điểm: ghim id vào ",
+									"marks": [],
+									"_key": "k381"
+								},
+								{
+									"_type": "span",
+									"text": "wrangler.jsonc",
+									"marks": [
+										"code"
+									],
+									"_key": "k382"
+								}
+							],
+							"markDefs": [],
+							"_key": "k383",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Seed không tạo nội dung",
+									"marks": [],
+									"_key": "k384"
+								}
+							],
+							"markDefs": [],
+							"_key": "k385"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "applySeed",
+									"marks": [
+										"code"
+									],
+									"_key": "k386"
+								},
+								{
+									"_type": "span",
+									"text": " mặc định ",
+									"marks": [],
+									"_key": "k387"
+								},
+								{
+									"_type": "span",
+									"text": "includeContent: false",
+									"marks": [
+										"code"
+									],
+									"_key": "k388"
+								}
+							],
+							"markDefs": [],
+							"_key": "k389",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Middleware không truyền → chỉ có schema, không có bài",
+									"marks": [],
+									"_key": "k390"
+								}
+							],
+							"markDefs": [],
+							"_key": "k391",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Chỉ setup wizard mới import; ",
+									"marks": [],
+									"_key": "k392"
+								},
+								{
+									"_type": "span",
+									"text": "onConflict: \"skip\"",
+									"marks": [
+										"code"
+									],
+									"_key": "k393"
+								},
+								{
+									"_type": "span",
+									"text": " nghĩa là không có lần hai",
+									"marks": [],
+									"_key": "k394"
+								}
+							],
+							"markDefs": [],
+							"_key": "k395",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Khoảng trống bảo mật của setup wizard",
+									"marks": [],
+									"_key": "k396"
+								}
+							],
+							"markDefs": [],
+							"_key": "k397"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Từ lúc site lên tới lúc chạy wizard, ai vào trước thành admin",
+									"marks": [],
+									"_key": "k398"
+								}
+							],
+							"markDefs": [],
+							"_key": "k399",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Cookie nonce chỉ chống cướp phiên đang dở, không chống người đến trước",
+									"marks": [],
+									"_key": "k400"
+								}
+							],
+							"markDefs": [],
+							"_key": "k401",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Chạy wizard ngay",
+									"marks": [],
+									"_key": "k402"
+								}
+							],
+							"markDefs": [],
+							"_key": "k403",
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Checklist",
+									"marks": [],
+									"_key": "k404"
+								}
+							],
+							"markDefs": [],
+							"_key": "k405"
+						}
+					]
+				},
+				"bylines": [
+					{
+						"byline": "byline-dang"
+					}
+				],
+				"taxonomies": {
+					"category": [
+						"backend"
+					],
+					"tag": [
+						"cloudflare",
+						"emdash",
+						"devops"
+					]
+				}
+			},
+			{
+				"id": "post-5",
 				"slug": "migration-mot-cot-tren-bang-vai-trieu-row",
 				"status": "draft",
 				"data": {
@@ -1314,7 +3933,7 @@
 				}
 			},
 			{
-				"id": "post-3",
+				"id": "post-6",
 				"slug": "shopify-webhook-khi-retry-la-binh-thuong",
 				"status": "draft",
 				"data": {
@@ -1700,7 +4319,7 @@
 				}
 			},
 			{
-				"id": "post-4",
+				"id": "post-7",
 				"slug": "vi-sao-chon-langgraph",
 				"status": "draft",
 				"data": {
@@ -2024,7 +4643,7 @@
 				}
 			},
 			{
-				"id": "post-5",
+				"id": "post-8",
 				"slug": "do-agent-the-nao",
 				"status": "draft",
 				"data": {
@@ -2314,7 +4933,7 @@
 				}
 			},
 			{
-				"id": "post-6",
+				"id": "post-9",
 				"slug": "cho-agent-doc-crm",
 				"status": "draft",
 				"data": {
@@ -2618,7 +5237,7 @@
 				}
 			},
 			{
-				"id": "post-7",
+				"id": "post-10",
 				"slug": "review-code-cua-nguoi-dung-ai",
 				"status": "draft",
 				"data": {
