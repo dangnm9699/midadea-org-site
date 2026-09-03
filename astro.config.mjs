@@ -8,6 +8,16 @@ import emdash from "emdash/astro";
 export default defineConfig({
 	// Astro dùng cho URL tuyệt đối (rss.xml.ts đọc `site`).
 	site: "https://midadean.org",
+	// Lightning CSS mặc định hạ cấp light-dark() thành polyfill hai biến
+	// switch, và nhánh dark của polyfill chỉ được kích bởi
+	// @media (prefers-color-scheme: dark) — tức là theo hệ điều hành.
+	// Nút đổi theme ở footer chỉ đổi `color-scheme` trên <html>, không đổi
+	// được media query đó, nên bấm nút chỉ thấy scrollbar đổi màu còn 149
+	// token màu thì đứng yên. Nâng target lên mức có light-dark() gốc
+	// (Chrome 123 / Safari 17.5 / Firefox 120) để giữ nguyên hàm này.
+	vite: {
+		build: { cssTarget: "esnext" },
+	},
 	output: "server",
 	adapter: cloudflare(),
 	image: {
