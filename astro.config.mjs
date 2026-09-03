@@ -38,19 +38,35 @@ export default defineConfig({
 		}),
 	],
 	fonts: [
+		// subsets mặc định của Astro là ["latin"], KHÔNG chứa ế ộ ừ đ...
+		// Thiếu "vietnamese" thì chữ tiếng Việt rơi về font hệ điều hành
+		// chứ không dùng webfont — đó là lý do chữ vỡ nhịp.
 		{
 			provider: fontProviders.google(),
-			name: "Inter",
+			name: "Noto Serif",
 			cssVariable: "--font-body",
-			weights: [400, 500, 600, 700],
-			fallbacks: ["sans-serif"],
+			weights: [400, 600],
+			styles: ["normal", "italic"],
+			subsets: ["latin", "latin-ext", "vietnamese"],
+			fallbacks: ["Georgia", "Times New Roman", "serif"],
+		},
+		{
+			// tokens.css khai báo --font-heading; nạp Inter thẳng vào biến đó
+			// để tiêu đề, nav và nhãn meta dùng sans, thân bài dùng serif.
+			provider: fontProviders.google(),
+			name: "Inter",
+			cssVariable: "--font-heading",
+			weights: [400, 500, 600],
+			subsets: ["latin", "latin-ext", "vietnamese"],
+			fallbacks: ["system-ui", "sans-serif"],
 		},
 		{
 			provider: fontProviders.google(),
 			name: "JetBrains Mono",
 			cssVariable: "--font-mono",
 			weights: [400, 500],
-			fallbacks: ["monospace"],
+			subsets: ["latin", "latin-ext", "vietnamese"],
+			fallbacks: ["ui-monospace", "SFMono-Regular", "monospace"],
 		},
 	],
 	devToolbar: { enabled: false },
