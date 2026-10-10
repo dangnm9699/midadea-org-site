@@ -10,6 +10,7 @@ import { createPublicPageContext } from "emdash/page";
 import LiveSearch from "emdash/ui/search";
 import { Font } from "astro:assets";
 import { resolveBlogSiteIdentity } from "../utils/site-identity";
+import BrandMark from "../components/BrandMark.astro";
 import "../styles/tokens.css";
 import "../styles/theme.css";
 
@@ -82,6 +83,8 @@ const isLoggedIn = !!Astro.locals.user;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="apple-touch-icon" href="/favicon.svg" />
 		<Font cssVariable="--font-body" preload />
 		<Font cssVariable="--font-heading" preload />
 		<Font cssVariable="--font-mono" />
@@ -107,7 +110,7 @@ const isLoggedIn = !!Astro.locals.user;
 				<a href="/" class="site-title">
 					{siteLogo
 						? <img src={siteLogo.url} alt={siteLogo.alt || siteTitle} class="site-logo-img" />
-						: siteTitle
+						: <><BrandMark size={30} /><span class="site-wordmark">{siteTitle}</span></>
 					}
 				</a>
 				<div class="nav-right">
@@ -150,7 +153,7 @@ const isLoggedIn = !!Astro.locals.user;
 						<a href="/" class="footer-logo">
 							{siteLogo
 								? <img src={siteLogo.url} alt={siteLogo.alt || siteTitle} class="footer-logo-img" />
-								: siteTitle
+								: <><BrandMark size={28} /><span class="footer-wordmark">{siteTitle}</span></>
 							}
 						</a>
 						<p class="footer-tagline">{siteTagline}</p>
@@ -467,6 +470,9 @@ const isLoggedIn = !!Astro.locals.user;
 			}
 
 			.site-title {
+				display: inline-flex;
+				align-items: center;
+				gap: var(--spacing-3);
 				font-size: var(--font-size-lg);
 				font-weight: 600;
 				color: var(--color-text);
@@ -476,6 +482,24 @@ const isLoggedIn = !!Astro.locals.user;
 
 			.site-title:hover {
 				color: var(--color-brand);
+			}
+
+			.site-title .brand-mark,
+			.footer-logo .brand-mark {
+				flex: 0 0 auto;
+				color: var(--color-brand);
+				transition: transform var(--transition-fast), color var(--transition-fast);
+			}
+
+			.site-title:hover .brand-mark,
+			.footer-logo:hover .brand-mark {
+				color: var(--color-brand-hover);
+				transform: rotate(-4deg);
+			}
+
+			.site-wordmark,
+			.footer-wordmark {
+				line-height: 1;
 			}
 
 			.site-logo-img {
@@ -650,6 +674,9 @@ const isLoggedIn = !!Astro.locals.user;
 			}
 
 			.footer-logo {
+				display: inline-flex;
+				align-items: center;
+				gap: var(--spacing-3);
 				font-size: var(--font-size-lg);
 				font-weight: 600;
 				color: var(--color-text);

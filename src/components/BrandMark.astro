@@ -1,0 +1,28 @@
+---
+interface Props {
+	size?: number;
+	label?: string;
+}
+const { size = 32, label = "midadean" } = Astro.props;
+---
+
+<svg
+	class="brand-mark"
+	width={size}
+	height={size}
+	viewBox="0 0 48 48"
+	role="img"
+	aria-label={label}
+>
+	<rect width="48" height="48" rx="13" fill="currentColor" />
+	<path
+		d="M12 34V14h4.8l7.2 10 7.2-10H36v20h-5V22.5l-7 9.4-7-9.4V34h-5Z"
+		fill="var(--brand-mark-ink, #faf9f5)"
+	/>
+</svg>
+
+<style>
+	.brand-mark {
+		color: var(--color-brand);
+	}
+</style>
