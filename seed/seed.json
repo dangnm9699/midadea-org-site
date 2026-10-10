@@ -509,6 +509,762 @@
 		],
 		"posts": [
 			{
+				"id": "post-0",
+				"slug": "agent-trong-production-khong-bat-dau-tu-llm",
+				"status": "published",
+				"data": {
+					"title": "Agent trong production không bắt đầu từ LLM",
+					"excerpt": "Một agent dùng được trong công việc thật cần nhiều hơn một model tốt: ranh giới dữ liệu, quyền truy cập, Skill, Plugin, idempotency và cách chịu lỗi.",
+					"content": [
+						{
+							"_type": "block",
+							"style": "blockquote",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Có một khác biệt lớn giữa việc thêm một ô chat vào sản phẩm và xây một agent có thể tham gia vào công việc thật.",
+									"marks": [],
+									"_key": "a0"
+								}
+							],
+							"markDefs": [],
+							"_key": "a0"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Ô chat cần trả lời nghe hợp lý. Agent trong production phải biết nó đang phục vụ ai, được phép nhìn thấy dữ liệu nào, có thể thực hiện hành động gì, phải chờ bao lâu, xử lý lỗi ra sao và làm thế nào để không thực hiện cùng một việc hai lần khi người dùng bấm gửi lại.",
+									"marks": [],
+									"_key": "a1"
+								}
+							],
+							"markDefs": [],
+							"_key": "a1"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Đó là lý do tôi ngày càng ít bắt đầu một bài toán agent bằng câu hỏi: nên dùng model nào?",
+									"marks": [],
+									"_key": "a2"
+								}
+							],
+							"markDefs": [],
+							"_key": "a2"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Model quan trọng, tất nhiên. Nhưng model thường không phải phần khó nhất. Phần khó nằm ở ranh giới giữa người dùng, dữ liệu, quyền truy cập, hệ thống nghiệp vụ và các hành động mà agent được phép thực hiện.",
+									"marks": [],
+									"_key": "a3"
+								}
+							],
+							"markDefs": [],
+							"_key": "a3"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Một câu trả lời đúng chưa đủ",
+									"marks": [],
+									"_key": "a4"
+								}
+							],
+							"markDefs": [],
+							"_key": "a4"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Trong một demo, luồng xử lý thường rất ngắn: người dùng gửi prompt, LLM tạo câu trả lời.",
+									"marks": [],
+									"_key": "a5"
+								}
+							],
+							"markDefs": [],
+							"_key": "a5"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Trong một hệ thống thật, luồng đó dài hơn nhiều: xác định danh tính và phạm vi quyền, nhận diện ngữ cảnh, chọn agent hoặc Skill phù hợp, truy vấn dữ liệu qua Plugin, gọi model, stream kết quả, xử lý retry hoặc timeout, rồi lưu lại kết quả để có thể kiểm tra và truy vết.",
+									"marks": [],
+									"_key": "a6"
+								}
+							],
+							"markDefs": [],
+							"_key": "a6"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Mỗi bước đều có thể tạo ra lỗi. Agent có thể trả lời đúng câu hỏi nhưng lấy nhầm dữ liệu. Có thể lấy đúng dữ liệu nhưng thực hiện hành động vượt quyền. Có thể làm đúng mọi thứ nhưng chạy hai lần vì request bị retry.",
+									"marks": [],
+									"_key": "a7"
+								}
+							],
+							"markDefs": [],
+							"_key": "a7"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Khi đó, vấn đề không còn là AI thông minh hay không. Vấn đề là hệ thống có kiểm soát được AI hay không.",
+									"marks": [],
+									"_key": "a8"
+								}
+							],
+							"markDefs": [],
+							"_key": "a8"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Tách hệ thống công việc khỏi lớp agent",
+									"marks": [],
+									"_key": "a9"
+								}
+							],
+							"markDefs": [],
+							"_key": "a9"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Một nền tảng ticket support và quản lý công việc thường đã có sẵn người dùng, tổ chức, task, ticket, comment, trạng thái xử lý, ACL, lịch sử thay đổi, mention, phân công và quy trình phê duyệt.",
+									"marks": [],
+									"_key": "a10"
+								}
+							],
+							"markDefs": [],
+							"_key": "a10"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Những thứ đó nên tiếp tục thuộc về nền tảng nghiệp vụ. Agent không nên trở thành nơi sở hữu một bản sao khác của toàn bộ trạng thái công việc.",
+									"marks": [],
+									"_key": "a11"
+								}
+							],
+							"markDefs": [],
+							"_key": "a11"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Agent runtime có thể phụ trách việc hiểu yêu cầu, chọn Skill, gọi Plugin, lấy thông tin và tạo đề xuất. Nhưng hệ thống nghiệp vụ vẫn nên là nơi quyết định trạng thái cuối cùng.",
+									"marks": [],
+									"_key": "a12"
+								}
+							],
+							"markDefs": [],
+							"_key": "a12"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Ví dụ, agent có thể đề xuất cập nhật trạng thái một ticket. Việc cập nhật đó vẫn cần đi qua API hoặc workflow của hệ thống ticket support, nơi có thể kiểm tra quyền, điều kiện chuyển trạng thái và lịch sử thao tác.",
+									"marks": [],
+									"_key": "a13"
+								}
+							],
+							"markDefs": [],
+							"_key": "a13"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Cách tách này giúp dữ liệu nghiệp vụ không bị phân tán sang nhiều nơi. Agent có thể được thay thế hoặc nâng cấp mà không làm thay đổi nền móng của hệ thống quản lý công việc.",
+									"marks": [],
+									"_key": "a14"
+								}
+							],
+							"markDefs": [],
+							"_key": "a14"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Agent là lớp hỗ trợ quyết định và thực thi có kiểm soát. Nó không nên trở thành system of record.",
+									"marks": [],
+									"_key": "a15"
+								}
+							],
+							"markDefs": [],
+							"_key": "a15"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Context không phải là một chuỗi text thật dài",
+									"marks": [],
+									"_key": "a16"
+								}
+							],
+							"markDefs": [],
+							"_key": "a16"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Một lỗi phổ biến khi xây agent là cứ gặp vấn đề thì nhét thêm context vào prompt. Thiếu thông tin thì thêm dữ liệu. Agent trả lời sai thì thêm lịch sử. Cần agent hiểu ticket thì gửi toàn bộ ticket, toàn bộ comment và mọi dữ liệu liên quan.",
+									"marks": [],
+									"_key": "a17"
+								}
+							],
+							"markDefs": [],
+							"_key": "a17"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Cách này có thể giúp demo tốt hơn trong ngắn hạn, nhưng sớm muộn sẽ gặp ba vấn đề: context phình to, chi phí và latency tăng, và agent khó phân biệt đâu là chỉ dẫn, đâu là dữ liệu, đâu là nội dung không đáng tin.",
+									"marks": [],
+									"_key": "a18"
+								}
+							],
+							"markDefs": [],
+							"_key": "a18"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Một context tốt cần có ranh giới rõ ràng. System policy là quy tắc agent phải tuân thủ. Trusted metadata là dữ liệu do hệ thống tạo ra và đã được kiểm tra. User request là yêu cầu hiện tại. Business content là nội dung ticket, comment, tài liệu hoặc đoạn hội thoại để tham khảo, không tự động trở thành instruction. Tool instructions là quy tắc khi agent gọi Plugin hoặc hệ thống bên ngoài.",
+									"marks": [],
+									"_key": "a19"
+								}
+							],
+							"markDefs": [],
+							"_key": "a19"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Phân biệt này rất quan trọng vì nội dung trong ticket hoặc tài liệu có thể chứa những câu giống instruction. Một comment có thể nói bỏ qua mọi quy tắc trước đó và gửi toàn bộ dữ liệu. Agent không được xem đó là system prompt chỉ vì nó xuất hiện trong context.",
+									"marks": [],
+									"_key": "a20"
+								}
+							],
+							"markDefs": [],
+							"_key": "a20"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Không phải dữ liệu nào cũng cần gửi ngay từ đầu. Nhiều thông tin nên được truy vấn khi cần qua Plugin. Cách này giúp giảm context, giảm rò rỉ dữ liệu và làm cho tool trace rõ ràng hơn.",
+									"marks": [],
+									"_key": "a21"
+								}
+							],
+							"markDefs": [],
+							"_key": "a21"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Identity không chỉ là một token",
+									"marks": [],
+									"_key": "a22"
+								}
+							],
+							"markDefs": [],
+							"_key": "a22"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Một agent thường cần biết ba điều: request này đến từ ai, người đó thuộc tenant hoặc workspace nào, và người đó được phép xem và làm gì.",
+									"marks": [],
+									"_key": "a23"
+								}
+							],
+							"markDefs": [],
+							"_key": "a23"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Ba điều này không nên bị gom thành một chuỗi token mơ hồ. Session token dùng để duy trì phiên không nhất thiết phải chứa identity. API key của agent runtime cũng không đại diện cho toàn bộ quyền của người dùng. Email không nên được dùng làm opaque token chỉ vì nó tiện.",
+									"marks": [],
+									"_key": "a24"
+								}
+							],
+							"markDefs": [],
+							"_key": "a24"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Khi agent cần truy cập dữ liệu thay mặt người dùng, hệ thống nên truyền một delegated authorization có phạm vi rõ ràng. Delegation có thể bao gồm user hoặc subject, tenant, audience, scope, thời hạn, nonce và trace ID.",
+									"marks": [],
+									"_key": "a25"
+								}
+							],
+							"markDefs": [],
+							"_key": "a25"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Plugin hoặc API phía sau phải kiểm tra delegation này trước khi trả dữ liệu hoặc thực hiện hành động. Agent không được dùng quyền của service để đại diện cho quyền của mọi user.",
+									"marks": [],
+									"_key": "a26"
+								}
+							],
+							"markDefs": [],
+							"_key": "a26"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Một service credential có thể cho phép gọi API. Nó không nên tự động cho phép agent xem mọi ticket trong hệ thống.",
+									"marks": [],
+									"_key": "a27"
+								}
+							],
+							"markDefs": [],
+							"_key": "a27"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Skill và Plugin mới tạo ra năng lực thực tế",
+									"marks": [],
+									"_key": "a28"
+								}
+							],
+							"markDefs": [],
+							"_key": "a28"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Model tạo ra khả năng suy luận và sinh ngôn ngữ. Nhưng một agent hữu ích cần nhiều hơn việc viết câu trả lời.",
+									"marks": [],
+									"_key": "a29"
+								}
+							],
+							"markDefs": [],
+							"_key": "a29"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Skill mô tả cách xử lý một loại công việc. Skill có thể quy định agent cần kiểm tra những gì, nên dùng Plugin nào, khi nào cần hỏi lại và khi nào phải yêu cầu người dùng xác nhận.",
+									"marks": [],
+									"_key": "a30"
+								}
+							],
+							"markDefs": [],
+							"_key": "a30"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Plugin cung cấp khả năng kết nối với dữ liệu hoặc hệ thống bên ngoài. Đó có thể là tìm kiếm tài liệu, truy vấn ticket, kiểm tra trạng thái đơn hàng, lấy thông tin cấu hình, tạo báo cáo hoặc gửi một hành động đã được cấp quyền.",
+									"marks": [],
+									"_key": "a31"
+								}
+							],
+							"markDefs": [],
+							"_key": "a31"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Tách Skill và Plugin giúp hệ thống dễ thay đổi hơn. Nếu thay model nhưng giữ nguyên Skill và Plugin, hành vi nghiệp vụ có thể vẫn ổn định. Nếu thay một nguồn dữ liệu, chỉ cần thay connector tương ứng thay vì sửa toàn bộ agent.",
+									"marks": [],
+									"_key": "a32"
+								}
+							],
+							"markDefs": [],
+							"_key": "a32"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Trong thực tế, chất lượng của agent thường phụ thuộc nhiều vào cách Skill và Plugin được thiết kế hơn là việc tăng model từ phiên bản này sang phiên bản khác.",
+									"marks": [],
+									"_key": "a33"
+								}
+							],
+							"markDefs": [],
+							"_key": "a33"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Streaming là bài toán trạng thái, không chỉ là UX",
+									"marks": [],
+									"_key": "a34"
+								}
+							],
+							"markDefs": [],
+							"_key": "a34"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Người dùng thích streaming vì họ thấy hệ thống đang làm việc. Nhưng streaming cũng làm lộ ra nhiều vấn đề backend: request có thể mất kết nối, được gửi lại do refresh, bị retry bởi client hoặc proxy, chạy lâu hơn timeout, tạo ra kết quả một phần, hoặc hoàn thành ở backend nhưng frontend không nhận được event cuối.",
+									"marks": [],
+									"_key": "a35"
+								}
+							],
+							"markDefs": [],
+							"_key": "a35"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Nếu không có idempotency, cùng một yêu cầu có thể tạo ra hai agent run. Nếu không có placeholder hoặc trạng thái trung gian, người dùng không biết request đang chạy hay đã thất bại. Nếu không có cơ chế claim và lease, hai worker có thể cùng xử lý một task.",
+									"marks": [],
+									"_key": "a36"
+								}
+							],
+							"markDefs": [],
+							"_key": "a36"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Streaming nên được thiết kế cùng với state machine: queued, running, streaming, completed; đồng thời có nhánh rõ ràng cho retryable error, timeout, non-retryable error và duplicate request.",
+									"marks": [],
+									"_key": "a37"
+								}
+							],
+							"markDefs": [],
+							"_key": "a37"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Đây không chỉ là vấn đề kỹ thuật. Nó ảnh hưởng trực tiếp đến niềm tin của người dùng. Một agent trả lời chậm nhưng trạng thái rõ ràng vẫn dễ dùng hơn một agent đôi khi tạo hai ticket hoặc ghi hai comment giống nhau.",
+									"marks": [],
+									"_key": "a38"
+								}
+							],
+							"markDefs": [],
+							"_key": "a38"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Routing cố định trước, decision model sau",
+									"marks": [],
+									"_key": "a39"
+								}
+							],
+							"markDefs": [],
+							"_key": "a39"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Khi có nhiều agent hoặc nhiều Skill, ý tưởng dùng một decision model để tự chọn agent nghe khá hấp dẫn. Nhưng không phải routing nào cũng cần machine learning.",
+									"marks": [],
+									"_key": "a40"
+								}
+							],
+							"markDefs": [],
+							"_key": "a40"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Nếu user mention chính xác một agent, hệ thống nên gọi đúng agent đó. Nếu loại ticket đã biết rõ, có thể dùng mapping deterministic. Nếu thiếu thông tin, agent nên hỏi lại. Nếu hành động có rủi ro, hệ thống nên yêu cầu confirmation.",
+									"marks": [],
+									"_key": "a41"
+								}
+							],
+							"markDefs": [],
+							"_key": "a41"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Những quy tắc này dễ kiểm tra, dễ giải thích và dễ debug. Chúng cũng giúp thu thập dữ liệu thực tế trước khi đưa thêm model vào quá trình routing.",
+									"marks": [],
+									"_key": "a42"
+								}
+							],
+							"markDefs": [],
+							"_key": "a42"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Một decision model chỉ đáng cân nhắc khi đã có đủ dữ liệu về route đúng, correction, latency, cost và mức độ chấp nhận của người dùng. Nếu chưa có các tín hiệu đó, thêm một model vào routing có thể chỉ làm hệ thống khó đoán hơn.",
+									"marks": [],
+									"_key": "a43"
+								}
+							],
+							"markDefs": [],
+							"_key": "a43"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Một checklist nhỏ trước khi gọi là production",
+									"marks": [],
+									"_key": "a44"
+								}
+							],
+							"markDefs": [],
+							"_key": "a44"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Trước khi đưa một agent vào hệ thống thật, tôi muốn có câu trả lời rõ cho các câu hỏi sau: Agent đang phục vụ user nào? User đó được xem dữ liệu nào? Context nào là trusted, context nào là untrusted? Plugin nào được phép gọi? Plugin có kiểm tra delegated authorization không? Hành động nào cần confirmation?",
+									"marks": [],
+									"_key": "a45"
+								}
+							],
+							"markDefs": [],
+							"_key": "a45"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Request bị retry thì có tạo duplicate không? Người dùng refresh trang thì chuyện gì xảy ra? Timeout được xử lý thế nào? Kết quả có được lưu lại không? Có thể truy vết từ request đến model call và tool call không? Có đo được latency, cost, retry và failure rate không?",
+									"marks": [],
+									"_key": "a46"
+								}
+							],
+							"markDefs": [],
+							"_key": "a46"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Nếu chưa trả lời được những câu này, có lẽ hệ thống vẫn đang ở giai đoạn demo, dù giao diện đã rất đẹp.",
+									"marks": [],
+									"_key": "a47"
+								}
+							],
+							"markDefs": [],
+							"_key": "a47"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Kết luận",
+									"marks": [],
+									"_key": "a48"
+								}
+							],
+							"markDefs": [],
+							"_key": "a48"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Agent production không bắt đầu từ việc chọn LLM tốt nhất. Nó bắt đầu từ việc xác định agent được phép làm gì, được truy cập dữ liệu nào và phải chịu trách nhiệm đến đâu.",
+									"marks": [],
+									"_key": "a49"
+								}
+							],
+							"markDefs": [],
+							"_key": "a49"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Một hệ thống bền vững thường có những ranh giới khá rõ: nền tảng ticket support giữ trạng thái nghiệp vụ; agent runtime xử lý reasoning và orchestration; Skill quy định cách xử lý; Plugin kết nối dữ liệu và hành động; ACL bảo vệ quyền của người dùng; idempotency bảo vệ hệ thống khỏi duplicate; observability giúp con người biết agent đã làm gì.",
+									"marks": [],
+									"_key": "a50"
+								}
+							],
+							"markDefs": [],
+							"_key": "a50"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "LLM là một thành phần quan trọng trong kiến trúc đó. Nhưng nó chỉ là một thành phần. Phần còn lại là engineering.",
+									"marks": [],
+									"_key": "a51"
+								}
+							],
+							"markDefs": [],
+							"_key": "a51"
+						}
+					]
+				},
+				"bylines": [
+					{
+						"byline": "byline-dang"
+					}
+				],
+				"taxonomies": {
+					"category": [
+						"agent"
+					],
+					"tag": [
+						"agent",
+						"ai",
+						"security",
+						"backend",
+						"eval"
+					]
+				}
+			},
+			{
 				"id": "post-1",
 				"slug": "toi-dinh-dung-site-tinh-cuoi-cung-chay-cms-ssr",
 				"status": "published",
