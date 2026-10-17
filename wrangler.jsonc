@@ -4,12 +4,9 @@
 	"main": "./src/worker.ts",
 	"compatibility_date": "2026-02-24",
 	"compatibility_flags": ["nodejs_compat"],
-	// Blog đang chuyển sang blog.midadean.org; midadean.org giữ tạm cho tới khi
-	// trang chủ Mida Dean (repo midadean.org) nhận apex.
-	"routes": [
-		{ "pattern": "midadean.org", "custom_domain": true },
-		{ "pattern": "blog.midadean.org", "custom_domain": true },
-	],
+	// Blog sống ở blog.midadean.org; apex midadean.org là trang chủ Mida Dean
+	// (repo midadean.org, worker midadean-home), nơi link blog cũ được 301 sang đây.
+	"routes": [{ "pattern": "blog.midadean.org", "custom_domain": true }],
 	// Ghim sẵn KV namespace đã tồn tại. Không ghim thì @astrojs/cloudflare
 	// tiêm binding SESSION không kèm id, wrangler đi tạo namespace mới tên
 	// "midadea-org-site-session" và đâm vào cái đã có (API 10014).
