@@ -32,6 +32,10 @@ export default defineConfig({
 			// *.workers.dev là sinh ra URL workers.dev, trùng lặp với domain thật.
 			// Giá trị này cũng định nghĩa rpId cho passkey.
 			siteUrl: "https://midadean.org",
+			// Bước 1 của việc chuyển blog sang blog.midadean.org: passkey hiện có
+			// (rpId = midadean.org) dùng được trên subdomain mới. Khi chuyển hẳn,
+			// siteUrl đổi thành https://blog.midadean.org và dòng này bỏ đi.
+			allowedOrigins: ["https://blog.midadean.org"],
 			database: d1({ binding: "DB", session: "auto" }),
 			storage: r2({ binding: "MEDIA" }),
 			plugins: [formsPlugin()],
