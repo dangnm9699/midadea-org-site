@@ -1,3 +1,4 @@
+@import "./brand-tokens.css";
 /*
   theme.css -- theme overrides cho midadean.org.
 
@@ -71,4 +72,63 @@
 		--color-brand: #8a3b12;
 		--color-brand-hover: #6d2d0c;
 	}
+}
+
+@media (prefers-color-scheme: dark) { :root {
+  --md-canvas: #14140f;
+  --md-subtle: #1b1b15;
+  --md-surface: #1e1e18;
+  --md-text: #ece9e0;
+  --md-text-secondary: #a8a599;
+  --md-muted: #8d8a7f;
+  --md-border: #2c2b24;
+  --md-control-border: #827f72;
+  --md-brand: #e08a5a;
+  --md-brand-hover: #efa77c;
+  --md-on-brand: #14140f;
+  --md-brand-soft: #2a1c13;
+  --md-rose: #f39ab0;
+  --md-olive: #b6c88a;
+  --md-success: #8fd08a;
+  --md-success-soft: #18301a;
+  --md-warning: #f3c06b;
+  --md-warning-soft: #2e2112;
+  --md-danger: #ff8a9b;
+  --md-danger-soft: #331419;
+  --md-info: #9ecbf0;
+  --md-info-soft: #142638;
+  --md-shadow-sm: 0 1px 2px rgb(0 0 0 / 24%);
+  --md-shadow-overlay: 0 12px 36px rgb(0 0 0 / 40%);
+} }
+
+/* Shared palette through the supported theme override layer. */
+:root { --color-bg: var(--md-canvas); --color-bg-subtle: var(--md-subtle); --color-surface: var(--md-surface); --color-text: var(--md-text); --color-text-secondary: var(--md-text-secondary); --color-muted: var(--md-muted); --color-border: var(--md-border); --color-brand: var(--md-brand); --color-brand-hover: var(--md-brand-hover); --color-on-brand: var(--md-on-brand); --brand-mark-ink: var(--md-on-brand); --radius: var(--md-radius-control); --radius-lg: var(--md-radius-card); }
+:focus-visible { outline: 2px solid var(--md-brand); outline-offset: 3px; }
+
+/* Follow color-scheme, including the blog user theme preference. */
+@supports (color: light-dark(#000, #fff)) {
+:root {
+  --md-canvas: light-dark(#faf9f5, #14140f);
+  --md-subtle: light-dark(#f3f0e7, #1b1b15);
+  --md-surface: light-dark(#ffffff, #1e1e18);
+  --md-text: light-dark(#14140f, #ece9e0);
+  --md-text-secondary: light-dark(#4a4a42, #a8a599);
+  --md-muted: light-dark(#6b695f, #8d8a7f);
+  --md-border: light-dark(#e6e1d4, #2c2b24);
+  --md-control-border: light-dark(#878477, #827f72);
+  --md-brand: light-dark(#8a3b12, #e08a5a);
+  --md-brand-hover: light-dark(#6d2d0c, #efa77c);
+  --md-on-brand: light-dark(#faf9f5, #14140f);
+  --md-brand-soft: light-dark(#f6e7dc, #2a1c13);
+  --md-rose: light-dark(#a3324f, #f39ab0);
+  --md-olive: light-dark(#5f7132, #b6c88a);
+  --md-success: light-dark(#2f6b2a, #8fd08a);
+  --md-success-soft: light-dark(#e6f2e3, #18301a);
+  --md-warning: light-dark(#855008, #f3c06b);
+  --md-warning-soft: light-dark(#fff1d6, #2e2112);
+  --md-danger: light-dark(#b42332, #ff8a9b);
+  --md-danger-soft: light-dark(#fdecef, #331419);
+  --md-info: light-dark(#245c8c, #9ecbf0);
+  --md-info-soft: light-dark(#e9f1fa, #142638);
+}
 }
