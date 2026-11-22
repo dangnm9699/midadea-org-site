@@ -1,0 +1,77 @@
+/* Mida Dean design tokens v1.0 — approved baseline; no component styles. */
+:root {
+  --md-canvas: #faf9f5;
+  --md-subtle: #f3f0e7;
+  --md-surface: #ffffff;
+  --md-text: #14140f;
+  --md-text-secondary: #4a4a42;
+  --md-muted: #6b695f;
+  --md-border: #e6e1d4;
+  --md-control-border: #878477;
+  --md-brand: #8a3b12;
+  --md-brand-hover: #6d2d0c;
+  --md-on-brand: #faf9f5;
+  --md-brand-soft: #f6e7dc;
+  --md-rose: #a3324f;
+  --md-olive: #5f7132;
+  --md-success: #2f6b2a;
+  --md-success-soft: #e6f2e3;
+  --md-warning: #855008;
+  --md-warning-soft: #fff1d6;
+  --md-danger: #b42332;
+  --md-danger-soft: #fdecef;
+  --md-info: #245c8c;
+  --md-info-soft: #e9f1fa;
+  --md-font-ui: 'Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --md-font-reading: 'Noto Serif', Georgia, serif;
+  --md-font-mono: 'JetBrains Mono', monospace;
+  --md-space-1: 4px;
+  --md-space-2: 8px;
+  --md-space-3: 12px;
+  --md-space-4: 16px;
+  --md-space-5: 20px;
+  --md-space-6: 24px;
+  --md-space-8: 32px;
+  --md-space-10: 40px;
+  --md-space-12: 48px;
+  --md-space-16: 64px;
+  --md-space-20: 80px;
+  --md-space-24: 96px;
+  --md-radius-control: 8px;
+  --md-radius-card: 12px;
+  --md-radius-dialog: 20px;
+  --md-radius-pill: 999px;
+  --md-control-height: 44px;
+  --md-shadow-sm: 0 1px 2px rgb(20 20 15 / 6%);
+  --md-shadow-overlay: 0 12px 36px rgb(20 20 15 / 14%);
+  --md-duration-fast: 120ms;
+  --md-duration-base: 180ms;
+}
+
+/* Products opt in to dark mode only after their full UI has been checked. */
+[data-md-theme='dark'] {
+  --md-canvas: #14140f;
+  --md-subtle: #1b1b15;
+  --md-surface: #1e1e18;
+  --md-text: #ece9e0;
+  --md-text-secondary: #a8a599;
+  --md-muted: #8d8a7f;
+  --md-border: #2c2b24;
+  --md-control-border: #827f72;
+  --md-brand: #e08a5a;
+  --md-brand-hover: #efa77c;
+  --md-on-brand: #14140f;
+  --md-brand-soft: #2a1c13;
+  --md-rose: #f39ab0;
+  --md-olive: #b6c88a;
+  --md-success: #8fd08a;
+  --md-success-soft: #18301a;
+  --md-warning: #f3c06b;
+  --md-warning-soft: #2e2112;
+  --md-danger: #ff8a9b;
+  --md-danger-soft: #331419;
+  --md-info: #9ecbf0;
+  --md-info-soft: #142638;
+  --md-shadow-sm: 0 1px 2px rgb(0 0 0 / 24%);
+  --md-shadow-overlay: 0 12px 36px rgb(0 0 0 / 40%);
+}
